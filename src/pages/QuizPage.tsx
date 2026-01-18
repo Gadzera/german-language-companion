@@ -368,15 +368,15 @@ function renderQuizFormat(
 
   // F4 - Einsetzen aus Liste (мультипропуски)
   if (format === 'F4') {
-    const gaps = question.question_text.split('_____').map((text, i) => ({
-      text: text,
-      gapIndex: i,
-    })).filter((_, i, arr) => i < arr.length - 1);
+    // Передаём полный текст как есть
+    const allWords = [...question.options, ...(question.extra_words || [])];
+    // Перемешиваем слова
+    const shuffledWords = allWords.sort(() => Math.random() - 0.5);
     
     return (
       <GapFill
-        words={question.options}
-        gaps={gaps.map((g, i) => ({ text: g.text + '_____', gapIndex: i }))}
+        words={shuffledWords}
+        fullText={question.question_text}
         onSubmit={(answers) => {
           const answer = Object.values(answers).join(' ');
           onAnswer(answer);
