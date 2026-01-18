@@ -120,12 +120,12 @@ export const QuizPage: React.FC = () => {
                 Wiederholen
               </Button>
               <Button 
-                onClick={() => navigate(-1)}
+                onClick={() => navigate('/')}
                 variant="outline"
                 className="w-full"
               >
                 <span className="mr-2">→</span>
-                Weiter
+                Zur Startseite
               </Button>
             </div>
           </div>
