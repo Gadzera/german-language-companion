@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getQuizById } from '@/data/quizzes';
+import { getLocalQuestions } from '@/data/quizzes/index';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -50,10 +51,21 @@ export const QuizPage: React.FC = () => {
     const fetchQuestions = async () => {
       if (!quizId) return;
       
+      const quizIdNum = Number(quizId);
+      
+      // Сначала пробуем локальные данные
+      const localQuestions = getLocalQuestions(quizIdNum);
+      if (localQuestions.length > 0) {
+        setQuestions(localQuestions);
+        setLoading(false);
+        return;
+      }
+      
+      // Если локальных нет - загружаем из БД
       const { data, error } = await supabase
         .from('quiz_questions')
         .select('*')
-        .eq('quiz_id', Number(quizId))
+        .eq('quiz_id', quizIdNum)
         .order('created_at');
 
       if (error) {
