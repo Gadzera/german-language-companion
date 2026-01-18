@@ -1,95 +1,115 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface GapFillProps {
   words: string[];
-  gaps: { text: string; gapIndex: number }[];
+  fullText: string; // Полный текст с _____ для пробелов
   onSubmit: (answers: Record<number, string>) => void;
   disabled?: boolean;
 }
 
 export const GapFill: React.FC<GapFillProps> = ({
   words,
-  gaps,
+  fullText,
   onSubmit,
   disabled,
 }) => {
   const [usedWords, setUsedWords] = useState<Record<number, string>>({});
   const [availableWords, setAvailableWords] = useState<string[]>(words);
+  const [selectedGap, setSelectedGap] = useState<number | null>(null);
 
-  const fillGap = (gapIndex: number, word: string) => {
+  // Разбиваем текст на части по _____
+  const textParts = fullText.split('_____');
+  const gapCount = textParts.length - 1;
+
+  const handleGapClick = (gapIndex: number) => {
     if (disabled) return;
     
-    // If gap already has a word, return it to available
+    // Если в пробеле уже есть слово - удаляем его
     if (usedWords[gapIndex]) {
       setAvailableWords(prev => [...prev, usedWords[gapIndex]]);
+      const newUsed = { ...usedWords };
+      delete newUsed[gapIndex];
+      setUsedWords(newUsed);
+      setSelectedGap(gapIndex);
+    } else {
+      // Выбираем пробел
+      setSelectedGap(selectedGap === gapIndex ? null : gapIndex);
     }
-    
-    // Set new word
-    setUsedWords(prev => ({ ...prev, [gapIndex]: word }));
-    setAvailableWords(prev => prev.filter(w => w !== word));
   };
 
-  const removeFromGap = (gapIndex: number) => {
-    if (disabled || !usedWords[gapIndex]) return;
+  const handleWordClick = (word: string) => {
+    if (disabled || selectedGap === null) return;
     
-    setAvailableWords(prev => [...prev, usedWords[gapIndex]]);
-    const newUsed = { ...usedWords };
-    delete newUsed[gapIndex];
-    setUsedWords(newUsed);
+    // Вставляем слово в выбранный пробел
+    setUsedWords(prev => ({ ...prev, [selectedGap]: word }));
+    setAvailableWords(prev => prev.filter(w => w !== word));
+    setSelectedGap(null);
   };
 
   const handleSubmit = () => {
     onSubmit(usedWords);
   };
 
-  const allGapsFilled = gaps.every(g => usedWords[g.gapIndex]);
+  const allGapsFilled = Array.from({ length: gapCount }, (_, i) => i).every(i => usedWords[i]);
 
   return (
     <div className="space-y-4">
-      {/* Text with gaps */}
+      {/* Полный текст с пробелами */}
       <div className="bg-card rounded-xl p-4 border border-border">
-        <div className="text-lg leading-relaxed">
-          {gaps.map((gap, i) => (
-            <span key={i}>
-              {gap.text.split('_____').map((part, j, arr) => (
-                <React.Fragment key={j}>
-                  {part}
-                  {j < arr.length - 1 && (
-                    <button
-                      onClick={() => usedWords[gap.gapIndex] && removeFromGap(gap.gapIndex)}
-                      className={`inline-block min-w-20 mx-1 px-2 py-1 rounded border-2 ${
-                        usedWords[gap.gapIndex]
-                          ? 'border-primary bg-primary/10 text-primary font-medium'
-                          : 'border-dashed border-muted-foreground/50'
-                      }`}
-                    >
-                      {usedWords[gap.gapIndex] || '___'}
-                    </button>
+        <div className="text-lg leading-loose">
+          {textParts.map((part, i) => (
+            <React.Fragment key={i}>
+              <span>{part}</span>
+              {i < textParts.length - 1 && (
+                <button
+                  onClick={() => handleGapClick(i)}
+                  disabled={disabled}
+                  className={cn(
+                    "inline-block min-w-16 mx-1 px-3 py-1 rounded-lg border-2 transition-all",
+                    usedWords[i]
+                      ? "border-primary bg-primary/10 text-primary font-medium"
+                      : selectedGap === i
+                        ? "border-primary bg-primary/20 animate-pulse"
+                        : "border-dashed border-muted-foreground/50 hover:border-primary/50"
                   )}
-                </React.Fragment>
-              ))}
-              {i < gaps.length - 1 && ' '}
-            </span>
+                >
+                  {usedWords[i] || '___'}
+                </button>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
 
-      {/* Available words */}
+      {/* Подсказка */}
+      {selectedGap !== null && (
+        <p className="text-sm text-primary font-medium animate-fade-in">
+          ↓ Выберите слово для вставки в пробел {selectedGap + 1}
+        </p>
+      )}
+      {selectedGap === null && !allGapsFilled && (
+        <p className="text-sm text-muted-foreground">
+          ↑ Нажмите на пробел, затем выберите слово
+        </p>
+      )}
+
+      {/* Доступные слова */}
       <div>
         <p className="text-sm text-muted-foreground mb-2">Wörter:</p>
         <div className="flex flex-wrap gap-2">
           {availableWords.map((word, index) => (
             <button
               key={`${word}-${index}`}
-              onClick={() => {
-                const emptyGap = gaps.find(g => !usedWords[g.gapIndex]);
-                if (emptyGap) {
-                  fillGap(emptyGap.gapIndex, word);
-                }
-              }}
-              disabled={disabled}
-              className="px-3 py-2 bg-muted text-muted-foreground rounded-lg text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-50"
+              onClick={() => handleWordClick(word)}
+              disabled={disabled || selectedGap === null}
+              className={cn(
+                "px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                selectedGap !== null
+                  ? "bg-primary/20 text-primary hover:bg-primary hover:text-primary-foreground cursor-pointer"
+                  : "bg-muted text-muted-foreground opacity-60 cursor-not-allowed"
+              )}
             >
               {word}
             </button>
@@ -97,7 +117,7 @@ export const GapFill: React.FC<GapFillProps> = ({
         </div>
       </div>
 
-      {/* Submit button */}
+      {/* Кнопка проверки */}
       <Button
         onClick={handleSubmit}
         disabled={disabled || !allGapsFilled}
