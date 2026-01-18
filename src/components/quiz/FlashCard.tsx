@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface FlashCardProps {
   wordDe: string;
@@ -8,42 +8,24 @@ interface FlashCardProps {
 }
 
 export const FlashCard: React.FC<FlashCardProps> = ({ wordDe, wordTranslation, onComplete }) => {
-  const [flashCount, setFlashCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const maxFlashes = 5;
-
+  // 25-й кадр: показываем ОДИН раз на ~40мс (1/25 секунды) и сразу уходим
   useEffect(() => {
-    if (flashCount >= maxFlashes) {
-      setTimeout(onComplete, 500);
-      return;
-    }
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 40); // ~25 кадров в секунду = 40мс
 
-    const timer = setInterval(() => {
-      setIsVisible(prev => !prev);
-      if (!isVisible) {
-        setFlashCount(prev => prev + 1);
-      }
-    }, 100); // 25 кадр эффект - очень быстрое мерцание
-
-    return () => clearInterval(timer);
-  }, [flashCount, isVisible, onComplete]);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-50 flex items-center justify-center">
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.05 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-primary mb-2">{wordDe}</div>
-            <div className="text-2xl text-foreground">{wordTranslation}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="fixed inset-0 bg-background z-50 flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 1 }}
+        className="text-center"
+      >
+        <div className="text-5xl font-bold text-primary mb-3">{wordDe}</div>
+        <div className="text-3xl text-foreground">{wordTranslation}</div>
+      </motion.div>
     </div>
   );
 };

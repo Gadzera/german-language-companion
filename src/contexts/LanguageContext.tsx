@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-export type TranslationLanguage = 'ru' | 'en' | 'uk' | 'tr';
+export type TranslationLanguage = 'ru' | 'tr' | 'fa' | 'ar';
 
 interface LanguageOption {
   code: TranslationLanguage;
@@ -10,9 +10,9 @@ interface LanguageOption {
 
 export const languageOptions: LanguageOption[] = [
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'uk', name: 'Українська', flag: '🇺🇦' },
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+  { code: 'fa', name: 'فارسی', flag: '🇮🇷' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
 ];
 
 interface LanguageContextType {
