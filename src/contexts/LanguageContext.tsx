@@ -1,3 +1,4 @@
+// Language context for translation support
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type TranslationLanguage = 'ru' | 'tr' | 'fa' | 'ar';
