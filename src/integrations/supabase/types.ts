@@ -14,7 +14,123 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          subscription_expires_at: string | null
+          subscription_type: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          subscription_expires_at?: string | null
+          subscription_type?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          subscription_expires_at?: string | null
+          subscription_type?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      quiz_questions: {
+        Row: {
+          article: string | null
+          correct_answer: string
+          correct_answer_full: string | null
+          created_at: string
+          extra_words: Json | null
+          format: string
+          id: string
+          options: Json
+          question_hint: string | null
+          question_text: string
+          quiz_id: number
+          word_de: string | null
+          word_translation: Json | null
+        }
+        Insert: {
+          article?: string | null
+          correct_answer: string
+          correct_answer_full?: string | null
+          created_at?: string
+          extra_words?: Json | null
+          format: string
+          id?: string
+          options?: Json
+          question_hint?: string | null
+          question_text: string
+          quiz_id: number
+          word_de?: string | null
+          word_translation?: Json | null
+        }
+        Update: {
+          article?: string | null
+          correct_answer?: string
+          correct_answer_full?: string | null
+          created_at?: string
+          extra_words?: Json | null
+          format?: string
+          id?: string
+          options?: Json
+          question_hint?: string | null
+          question_text?: string
+          quiz_id?: number
+          word_de?: string | null
+          word_translation?: Json | null
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          completed: boolean | null
+          created_at: string
+          id: string
+          last_attempt_at: string | null
+          quiz_id: number
+          score: number | null
+          total_questions: number | null
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string
+          id?: string
+          last_attempt_at?: string | null
+          quiz_id: number
+          score?: number | null
+          total_questions?: number | null
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string
+          id?: string
+          last_attempt_at?: string | null
+          quiz_id?: number
+          score?: number | null
+          total_questions?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
