@@ -1,6 +1,78 @@
-// Quiz 27 - Шаблон упражнения
-// Формат: F2 - Form / Kasus wählen
+// Quiz 27 - Dativ nach Verben
+// Формат: F1 - Einsetzen
+// Уровень: A2
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q27-1",
+    quiz_id: 27,
+    question_text: "Ich helfe _____ Freund.",
+    question_hint: "Setzen Sie den Dativ ein!",
+    format: "F1",
+    options: ["meinem", "mein", "meinen", "meiner"],
+    correct_answer: "meinem",
+  },
+  {
+    id: "q27-2",
+    quiz_id: 27,
+    question_text: "Sie dankt _____ Lehrerin.",
+    question_hint: "Setzen Sie den Dativ ein!",
+    format: "F1",
+    options: ["der", "die", "den", "dem"],
+    correct_answer: "der",
+  },
+  {
+    id: "q27-3",
+    quiz_id: 27,
+    question_text: "Das Buch gehört _____ Kind.",
+    question_hint: "Setzen Sie den Dativ ein!",
+    format: "F1",
+    options: ["dem", "der", "das", "den"],
+    correct_answer: "dem",
+  },
+  {
+    id: "q27-4",
+    quiz_id: 27,
+    question_text: "Er antwortet _____ Mann.",
+    question_hint: "Setzen Sie den Dativ ein!",
+    format: "F1",
+    options: ["dem", "den", "der", "das"],
+    correct_answer: "dem",
+  },
+  {
+    id: "q27-5",
+    quiz_id: 27,
+    question_text: "Sie glaubt _____ nicht.",
+    question_hint: "Setzen Sie das Pronomen im Dativ ein! (ich)",
+    format: "F1",
+    options: ["mir", "mich", "ich", "mein"],
+    correct_answer: "mir",
+  },
+  {
+    id: "q27-6",
+    quiz_id: 27,
+    question_text: "Das gefällt _____ gut.",
+    question_hint: "Setzen Sie das Pronomen im Dativ ein! (du)",
+    format: "F1",
+    options: ["dir", "dich", "du", "dein"],
+    correct_answer: "dir",
+  },
+  {
+    id: "q27-7",
+    quiz_id: 27,
+    question_text: "Ich gratuliere _____ zum Geburtstag.",
+    question_hint: "Setzen Sie das Pronomen im Dativ ein! (er)",
+    format: "F1",
+    options: ["ihm", "ihn", "er", "sein"],
+    correct_answer: "ihm",
+  },
+  {
+    id: "q27-8",
+    quiz_id: 27,
+    question_text: "Die Jacke passt _____ nicht.",
+    question_hint: "Setzen Sie das Pronomen im Dativ ein! (sie)",
+    format: "F1",
+    options: ["ihr", "sie", "ihre", "ihren"],
+    correct_answer: "ihr",
+  },
 ];

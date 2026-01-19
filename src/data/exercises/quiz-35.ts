@@ -1,6 +1,78 @@
-// Quiz 35 - Шаблон упражнения
-// Формат: F3 - Satzstruktur mit Auswahl
+// Quiz 35 - Perfekt: haben oder sein
+// Формат: F6 - Richtige Wahl im Kontext
+// Уровень: A2
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q35-1",
+    quiz_id: 35,
+    question_text: "Ich _____ gestern nach Berlin gefahren.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["bin", "habe"],
+    correct_answer: "bin",
+  },
+  {
+    id: "q35-2",
+    quiz_id: 35,
+    question_text: "Er _____ ein neues Auto gekauft.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["hat", "ist"],
+    correct_answer: "hat",
+  },
+  {
+    id: "q35-3",
+    quiz_id: 35,
+    question_text: "Sie _____ um 7 Uhr aufgestanden.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["ist", "hat"],
+    correct_answer: "ist",
+  },
+  {
+    id: "q35-4",
+    quiz_id: 35,
+    question_text: "Wir _____ einen Film geschaut.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["haben", "sind"],
+    correct_answer: "haben",
+  },
+  {
+    id: "q35-5",
+    quiz_id: 35,
+    question_text: "Die Kinder _____ im Park gelaufen.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["sind", "haben"],
+    correct_answer: "sind",
+  },
+  {
+    id: "q35-6",
+    quiz_id: 35,
+    question_text: "Ihr _____ den Text gelesen.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["habt", "seid"],
+    correct_answer: "habt",
+  },
+  {
+    id: "q35-7",
+    quiz_id: 35,
+    question_text: "Maria _____ nach Hause gegangen.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["ist", "hat"],
+    correct_answer: "ist",
+  },
+  {
+    id: "q35-8",
+    quiz_id: 35,
+    question_text: "Ich _____ meiner Mutter geholfen.",
+    question_hint: "haben oder sein?",
+    format: "F6",
+    options: ["habe", "bin"],
+    correct_answer: "habe",
+  },
 ];
