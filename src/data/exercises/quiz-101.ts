@@ -1,6 +1,86 @@
-// Quiz 101 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 101 - ZT-2: Komposita bauen
+// Формат: F7 - Komposita
+// Задание: Bilden Sie Komposita!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt2-101-1",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Haus + Tür",
+    options: ["Haustür", "Türhaus", "Haustor", "Torhaus"],
+    correct_answer: "Haustür",
+  },
+  {
+    id: "zt2-101-2",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Schule + Buch",
+    options: ["Schulbuch", "Buchschule", "Schulheft", "Heftschule"],
+    correct_answer: "Schulbuch",
+  },
+  {
+    id: "zt2-101-3",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Wasser + Flasche",
+    options: ["Wasserflasche", "Flaschenwasser", "Wasserbecher", "Becherwasser"],
+    correct_answer: "Wasserflasche",
+  },
+  {
+    id: "zt2-101-4",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Telefon + Nummer",
+    options: ["Telefonnummer", "Nummertelefon", "Telefonzahl", "Zahltelefon"],
+    correct_answer: "Telefonnummer",
+  },
+  {
+    id: "zt2-101-5",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Arbeit + Platz",
+    options: ["Arbeitsplatz", "Platzarbeit", "Arbeitstisch", "Tischarbeit"],
+    correct_answer: "Arbeitsplatz",
+  },
+  {
+    id: "zt2-101-6",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Regen + Schirm",
+    options: ["Regenschirm", "Schirmregen", "Regenjacke", "Jackenregen"],
+    correct_answer: "Regenschirm",
+  },
+  {
+    id: "zt2-101-7",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Geburtstag + Kuchen",
+    options: ["Geburtstagskuchen", "Kuchengeburtstag", "Geburtstagstorte", "Tortengeburtstag"],
+    correct_answer: "Geburtstagskuchen",
+  },
+  {
+    id: "zt2-101-8",
+    quiz_id: 101,
+    question_text: "Bilden Sie ein Kompositum!",
+    question_hint: "Wort 1 + Wort 2 = ?",
+    format: "F7",
+    word_de: "Küche + Tisch",
+    options: ["Küchentisch", "Tischküche", "Küchenstuhl", "Stuhlküche"],
+    correct_answer: "Küchentisch",
+  },
 ];

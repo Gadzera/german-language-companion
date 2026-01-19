@@ -116,15 +116,15 @@ export const quizzes: Quiz[] = [
   { id: 83, title: "Wortbildung Nomen → Verb / Adjektiv", format: "F8", category: "wortschatz", level: "B1", duration: "6-8 Min" },
   { id: 84, title: "Verben + passende Ergänzung", format: "F6", category: "wortschatz", level: "B1", duration: "5-7 Min" },
 
-  // F) ZT-1 Vorbereitung (Grammatik 22P + Wortschatz 8P)
-  { id: 85, title: "Fragen mit Fragepronomen bilden", format: "F10", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
-  { id: 86, title: "Negative Antworten bilden", format: "F5", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 87, title: "Konnektoren (und / aber / oder / denn / sondern)", format: "F6", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
-  { id: 88, title: "Modalverben einsetzen", format: "F4", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
-  { id: 89, title: "Possessivartikel einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 90, title: "Wortreihen (Nomen + Artikel)", format: "F4", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 91, title: "Gegenteile (Antonyme)", format: "F8", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 92, title: "der / die / das einsetzen", format: "F1", category: "zt1", level: "ZT-1", duration: "3-5 Min" },
+  // F) ZT-1 Vorbereitung (Grammatik 22P + Wortschatz 8P + Lesen)
+  { id: 85, title: "Lesen: Neue Öffnungszeiten (Richtig/Falsch)", format: "F11", category: "zt1", level: "ZT-1", duration: "8-10 Min" },
+  { id: 86, title: "Fragen mit Fragepronomen bilden", format: "F10", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
+  { id: 87, title: "Negation (nicht / kein)", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 88, title: "Konnektoren (und / aber / oder / denn)", format: "F3", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
+  { id: 89, title: "Modalverben einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
+  { id: 90, title: "Possessivartikel einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 91, title: "Wortreihen (Nomen + Artikel)", format: "F2", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 92, title: "Gegenteile (Antonyme)", format: "F2", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
 
   // G) ZT-2 Vorbereitung (Hören 10P + Grammatik 20P + Wortschatz 10P)
   { id: 93, title: "Lesen: Kinderuni Wien (Richtig/Falsch)", format: "F11", category: "zt2", level: "ZT-2", duration: "8-10 Min" },
