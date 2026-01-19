@@ -2,6 +2,7 @@
 import { getZT1Questions } from './zt1-questions';
 import { getZT2Questions } from './zt2-questions';
 import { getZT3Questions } from './zt3-questions';
+import { getExerciseQuestions, hasExerciseFile } from '../exercises/index';
 
 export interface QuizQuestion {
   id: string;
@@ -12,14 +13,21 @@ export interface QuizQuestion {
   options: string[];
   correct_answer: string;
   correct_answer_full?: string;
+  correct_answers?: string[]; // Альтернативные правильные ответы
   word_de?: string;
   article?: string;
   word_translation?: Record<string, string>;
   extra_words?: string[];
 }
 
-// Получить вопросы по ID викторины (сначала из локальных файлов)
+// Получить вопросы по ID викторины
+// Приоритет: 1) отдельный файл упражнения, 2) групповой файл
 export const getLocalQuestions = (quizId: number): QuizQuestion[] => {
+  // Сначала проверяем отдельный файл упражнения
+  if (hasExerciseFile(quizId)) {
+    return getExerciseQuestions(quizId);
+  }
+  
   // ZT1: 85-92
   if (quizId >= 85 && quizId <= 92) {
     return getZT1Questions(quizId);

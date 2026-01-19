@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getQuizById } from '@/data/quizzes';
 import { getLocalQuestions } from '@/data/quizzes/index';
+import { getExerciseQuestions, hasExerciseFile } from '@/data/exercises/index';
+import { getFormatInstruction } from '@/data/quiz-formats/index';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -25,11 +27,37 @@ interface QuizQuestion {
   options: string[];
   correct_answer: string;
   correct_answer_full?: string;
+  correct_answers?: string[]; // Массив альтернативных правильных ответов
   word_de?: string;
   article?: string;
   word_translation?: Record<string, string>;
   extra_words?: string[];
 }
+
+// Функция проверки правильности ответа с учетом альтернатив
+const isAnswerCorrect = (userAnswer: string, question: QuizQuestion): boolean => {
+  const normalizedUserAnswer = userAnswer.toLowerCase().trim().replace(/\s+/g, ' ');
+  
+  // Проверяем основной правильный ответ
+  if (normalizedUserAnswer === question.correct_answer.toLowerCase().trim()) {
+    return true;
+  }
+  
+  // Проверяем полный правильный ответ
+  if (question.correct_answer_full && 
+      normalizedUserAnswer === question.correct_answer_full.toLowerCase().trim()) {
+    return true;
+  }
+  
+  // Проверяем альтернативные правильные ответы
+  if (question.correct_answers) {
+    return question.correct_answers.some(
+      ans => normalizedUserAnswer === ans.toLowerCase().trim().replace(/\s+/g, ' ')
+    );
+  }
+  
+  return false;
+};
 
 export const QuizPage: React.FC = () => {
   const { quizId } = useParams<{ quizId: string }>();
@@ -53,7 +81,17 @@ export const QuizPage: React.FC = () => {
       
       const quizIdNum = Number(quizId);
       
-      // Сначала пробуем локальные данные
+      // 1. Сначала пробуем отдельный файл упражнения
+      if (hasExerciseFile(quizIdNum)) {
+        const exerciseQuestions = getExerciseQuestions(quizIdNum);
+        if (exerciseQuestions.length > 0) {
+          setQuestions(exerciseQuestions);
+          setLoading(false);
+          return;
+        }
+      }
+      
+      // 2. Потом пробуем локальные данные из групповых файлов
       const localQuestions = getLocalQuestions(quizIdNum);
       if (localQuestions.length > 0) {
         setQuestions(localQuestions);
@@ -61,7 +99,7 @@ export const QuizPage: React.FC = () => {
         return;
       }
       
-      // Если локальных нет - загружаем из БД
+      // 3. Если локальных нет - загружаем из БД
       const { data, error } = await supabase
         .from('quiz_questions')
         .select('*')
@@ -120,8 +158,7 @@ export const QuizPage: React.FC = () => {
     if (!user || !quizId) return;
 
     const correctCount = answers.filter((a, i) => 
-      a === questions[i]?.correct_answer || 
-      a === questions[i]?.correct_answer_full
+      questions[i] && isAnswerCorrect(a, questions[i])
     ).length;
 
     const { error } = await supabase
@@ -201,8 +238,7 @@ export const QuizPage: React.FC = () => {
   }
 
   const correctCount = answers.filter((a, i) => 
-    a === questions[i]?.correct_answer || 
-    a === questions[i]?.correct_answer_full
+    questions[i] && isAnswerCorrect(a, questions[i])
   ).length;
 
   if (showResult) {
@@ -235,7 +271,7 @@ export const QuizPage: React.FC = () => {
               <h3 className="font-semibold text-foreground mb-3">Ergebnisse:</h3>
               <div className="space-y-2 max-h-60 overflow-y-auto">
                 {questions.map((q, i) => {
-                  const isCorrect = answers[i] === q.correct_answer || answers[i] === q.correct_answer_full;
+                  const isCorrect = answers[i] ? isAnswerCorrect(answers[i], q) : false;
                   return (
                     <div key={q.id} className="flex items-center justify-between text-sm py-1">
                       <span className="flex-1 truncate pr-2">{i + 1}. {q.question_text.substring(0, 30)}...</span>
@@ -271,8 +307,7 @@ export const QuizPage: React.FC = () => {
     );
   }
 
-  const isCurrentCorrect = selectedAnswer === question.correct_answer || 
-                          selectedAnswer === question.correct_answer_full;
+  const isCurrentCorrect = selectedAnswer ? isAnswerCorrect(selectedAnswer, question) : false;
 
   return (
     <div className="min-h-screen bg-background">
@@ -288,8 +323,15 @@ export const QuizPage: React.FC = () => {
       </div>
 
       <main className="max-w-md mx-auto px-4 py-6">
-        {/* Question - скрываем для F4, так как GapFill показывает полный текст */}
-        {question.format !== 'F4' && (
+        {/* Инструкция к заданию */}
+        <div className="bg-muted/50 rounded-lg px-4 py-3 mb-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            {getFormatInstruction(question.format, 'ru')}
+          </p>
+        </div>
+
+        {/* Question - скрываем для F4 и F10, так как они показывают свой UI */}
+        {!['F4', 'F10'].includes(question.format) && (
           <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
             {question.question_hint && (
               <p className="text-sm text-muted-foreground mb-2">{question.question_hint}</p>
@@ -307,6 +349,15 @@ export const QuizPage: React.FC = () => {
                   )}
                 </React.Fragment>
               ))}
+            </p>
+          </div>
+        )}
+        
+        {/* Начало предложения для F10 */}
+        {question.format === 'F10' && (
+          <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
+            <p className="text-lg text-foreground leading-relaxed font-medium">
+              {question.question_text}
             </p>
           </div>
         )}
