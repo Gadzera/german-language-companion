@@ -1,6 +1,78 @@
-// Quiz 79 - Шаблон упражнения
-// Формат: F8 - Zuordnen / Bilden
+// Quiz 79 - Komposita bauen (Grundtrainer)
+// Формат: F7 - Komposita bauen
+// Уровень: A2
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q79-1",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Hand + Tasche = ?",
+    format: "F7",
+    options: ["Hand", "Tasche"],
+    correct_answer: "Handtasche",
+  },
+  {
+    id: "q79-2",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Küchen + Tisch = ?",
+    format: "F7",
+    options: ["Küchen", "Tisch"],
+    correct_answer: "Küchentisch",
+  },
+  {
+    id: "q79-3",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Schlaf + Zimmer = ?",
+    format: "F7",
+    options: ["Schlaf", "Zimmer"],
+    correct_answer: "Schlafzimmer",
+  },
+  {
+    id: "q79-4",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Bade + Wanne = ?",
+    format: "F7",
+    options: ["Bade", "Wanne"],
+    correct_answer: "Badewanne",
+  },
+  {
+    id: "q79-5",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Fahr + Rad = ?",
+    format: "F7",
+    options: ["Fahr", "Rad"],
+    correct_answer: "Fahrrad",
+  },
+  {
+    id: "q79-6",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Haus + Tür = ?",
+    format: "F7",
+    options: ["Haus", "Tür"],
+    correct_answer: "Haustür",
+  },
+  {
+    id: "q79-7",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Stadt + Zentrum = ?",
+    format: "F7",
+    options: ["Stadt", "Zentrum"],
+    correct_answer: "Stadtzentrum",
+  },
+  {
+    id: "q79-8",
+    quiz_id: 79,
+    question_text: "Bauen Sie ein Kompositum!",
+    question_hint: "Zahn + Bürste = ?",
+    format: "F7",
+    options: ["Zahn", "Bürste"],
+    correct_answer: "Zahnbürste",
+  },
 ];

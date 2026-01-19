@@ -1,14 +1,78 @@
-// Quiz 82 - Шаблон упражнения
+// Quiz 82 - Wort passt nicht
 // Формат: F9 - Wort passt nicht
+// Уровень: A2
 
 export default [
-  // Пример вопроса:
-  // {
-  //   id: 'q82-1',
-  //   quiz_id: 82,
-  //   format: 'F9',
-  //   question_text: 'Welches Wort passt nicht?',
-  //   correct_answer: 'schwimmen',
-  //   options: ['Tisch', 'Stuhl', 'Schrank', 'schwimmen'],
-  // },
+  {
+    id: "q82-1",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Montag", "Dienstag", "Januar", "Mittwoch"],
+    correct_answer: "Januar",
+  },
+  {
+    id: "q82-2",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Apfel", "Birne", "Karotte", "Banane"],
+    correct_answer: "Karotte",
+  },
+  {
+    id: "q82-3",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Stuhl", "Tisch", "Auto", "Schrank"],
+    correct_answer: "Auto",
+  },
+  {
+    id: "q82-4",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["rot", "grün", "schnell", "blau"],
+    correct_answer: "schnell",
+  },
+  {
+    id: "q82-5",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Hund", "Katze", "Fisch", "Arzt"],
+    correct_answer: "Arzt",
+  },
+  {
+    id: "q82-6",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Bruder", "Schwester", "Mutter", "Lehrer"],
+    correct_answer: "Lehrer",
+  },
+  {
+    id: "q82-7",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["laufen", "gehen", "rennen", "essen"],
+    correct_answer: "essen",
+  },
+  {
+    id: "q82-8",
+    quiz_id: 82,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Finden Sie das Wort, das nicht in die Reihe passt!",
+    format: "F9",
+    options: ["Küche", "Bad", "Garten", "Wohnzimmer"],
+    correct_answer: "Garten",
+  },
 ];

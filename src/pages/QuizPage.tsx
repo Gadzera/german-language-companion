@@ -60,6 +60,16 @@ const isAnswerCorrect = (userAnswer: string, question: QuizQuestion): boolean =>
   return false;
 };
 
+// Функция для перемешивания массива (Fisher-Yates)
+const shuffleArray = <T,>(array: T[], seed?: number): T[] => {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
 export const QuizPage: React.FC = () => {
   const { quizId } = useParams<{ quizId: string }>();
   const navigate = useNavigate();
@@ -75,44 +85,61 @@ export const QuizPage: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
   const [showQuestionResult, setShowQuestionResult] = useState(false);
   const [showFlashCard, setShowFlashCard] = useState(false);
+  // Хранение перемешанных опций для каждого вопроса
+  const [shuffledOptionsMap, setShuffledOptionsMap] = useState<Record<number, string[]>>({});
 
   useEffect(() => {
     const fetchQuestions = async () => {
       if (!quizId) return;
       
       const quizIdNum = Number(quizId);
+      let loadedQuestions: QuizQuestion[] = [];
       
       // 1. Сначала пробуем отдельный файл упражнения
       if (hasExerciseFile(quizIdNum)) {
         const exerciseQuestions = getExerciseQuestions(quizIdNum);
         if (exerciseQuestions.length > 0) {
-          setQuestions(exerciseQuestions);
-          setLoading(false);
-          return;
+          loadedQuestions = exerciseQuestions;
         }
       }
       
       // 2. Потом пробуем локальные данные из групповых файлов
-      const localQuestions = getLocalQuestions(quizIdNum);
-      if (localQuestions.length > 0) {
-        setQuestions(localQuestions);
-        setLoading(false);
-        return;
+      if (loadedQuestions.length === 0) {
+        const localQuestions = getLocalQuestions(quizIdNum);
+        if (localQuestions.length > 0) {
+          loadedQuestions = localQuestions;
+        }
       }
       
       // 3. Если локальных нет - загружаем из БД
-      const { data, error } = await supabase
-        .from('quiz_questions')
-        .select('*')
-        .eq('quiz_id', quizIdNum)
-        .order('created_at');
+      if (loadedQuestions.length === 0) {
+        const { data, error } = await supabase
+          .from('quiz_questions')
+          .select('*')
+          .eq('quiz_id', quizIdNum)
+          .order('created_at');
 
-      if (error) {
-        console.error('Error fetching questions:', error);
-        toast.error('Fehler beim Laden der Fragen');
-      } else if (data && data.length > 0) {
-        setQuestions(data as unknown as QuizQuestion[]);
+        if (error) {
+          console.error('Error fetching questions:', error);
+          toast.error('Fehler beim Laden der Fragen');
+        } else if (data && data.length > 0) {
+          loadedQuestions = data as unknown as QuizQuestion[];
+        }
       }
+      
+      // Перемешиваем варианты ответов для каждого вопроса
+      const shuffledMap: Record<number, string[]> = {};
+      loadedQuestions.forEach((q, index) => {
+        // Перемешиваем только для форматов с выбором ответа (не F4, F5, F10, F7)
+        if (!['F4', 'F5', 'F10', 'F7'].includes(q.format)) {
+          shuffledMap[index] = shuffleArray(q.options);
+        } else {
+          shuffledMap[index] = q.options;
+        }
+      });
+      
+      setQuestions(loadedQuestions);
+      setShuffledOptionsMap(shuffledMap);
       setLoading(false);
     };
 
@@ -186,6 +213,17 @@ export const QuizPage: React.FC = () => {
     setAnswers([]);
     setShowResult(false);
     setShowQuestionResult(false);
+    
+    // Пересоздаём перемешанные опции
+    const shuffledMap: Record<number, string[]> = {};
+    questions.forEach((q, index) => {
+      if (!['F4', 'F5', 'F10', 'F7'].includes(q.format)) {
+        shuffledMap[index] = shuffleArray(q.options);
+      } else {
+        shuffledMap[index] = q.options;
+      }
+    });
+    setShuffledOptionsMap(shuffledMap);
   };
 
   if (!quiz) {
@@ -464,7 +502,7 @@ export const QuizPage: React.FC = () => {
         )}
 
         {/* Render based on format */}
-        {renderQuizFormat(question, selectedAnswer, handleAnswer, showQuestionResult)}
+        {renderQuizFormat(question, selectedAnswer, handleAnswer, showQuestionResult, shuffledOptionsMap[currentQuestion] || question.options)}
 
         {/* Next button */}
         {showQuestionResult && question.format !== 'F0' && (
@@ -484,7 +522,8 @@ function renderQuizFormat(
   question: QuizQuestion,
   selectedAnswer: string | null,
   onAnswer: (answer: string) => void,
-  showResult: boolean
+  showResult: boolean,
+  shuffledOptions: string[]
 ) {
   const format = question.format;
 
@@ -498,7 +537,7 @@ function renderQuizFormat(
   if (['F0', 'F1', 'F2', 'F3', 'F6', 'F8', 'F9'].includes(format)) {
     return (
       <div className="space-y-3">
-        {question.options.map((option, index) => {
+        {shuffledOptions.map((option, index) => {
           const isSelected = selectedAnswer === option;
           const isCorrect = option === question.correct_answer;
           const isWrong = isSelected && !isCorrect;
@@ -576,7 +615,7 @@ function renderQuizFormat(
   // Fallback - показываем опции
   return (
     <div className="space-y-3">
-      {question.options.map((option, index) => (
+      {shuffledOptions.map((option, index) => (
         <OptionButton
           key={index}
           label={option}

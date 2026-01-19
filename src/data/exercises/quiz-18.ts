@@ -1,6 +1,78 @@
-// Quiz 18 - Шаблон упражнения
+// Quiz 18 - Präsens regelmäßige Verben
 // Формат: F1 - Einsetzen
+// Уровень: A1
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q18-1",
+    quiz_id: 18,
+    question_text: "Ich _____ Deutsch. (lernen)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["lerne", "lernst", "lernt", "lernen"],
+    correct_answer: "lerne",
+  },
+  {
+    id: "q18-2",
+    quiz_id: 18,
+    question_text: "Du _____ sehr gut. (kochen)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["kochst", "koche", "kocht", "kochen"],
+    correct_answer: "kochst",
+  },
+  {
+    id: "q18-3",
+    quiz_id: 18,
+    question_text: "Er _____ in Berlin. (wohnen)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["wohnt", "wohne", "wohnst", "wohnen"],
+    correct_answer: "wohnt",
+  },
+  {
+    id: "q18-4",
+    quiz_id: 18,
+    question_text: "Wir _____ viel. (arbeiten)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["arbeiten", "arbeite", "arbeitest", "arbeitet"],
+    correct_answer: "arbeiten",
+  },
+  {
+    id: "q18-5",
+    quiz_id: 18,
+    question_text: "Ihr _____ Musik. (hören)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["hört", "höre", "hörst", "hören"],
+    correct_answer: "hört",
+  },
+  {
+    id: "q18-6",
+    quiz_id: 18,
+    question_text: "Sie (Pl.) _____ gern. (tanzen)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["tanzen", "tanze", "tanzt", "tanzst"],
+    correct_answer: "tanzen",
+  },
+  {
+    id: "q18-7",
+    quiz_id: 18,
+    question_text: "Maria _____ Kaffee. (trinken)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["trinkt", "trinke", "trinkst", "trinken"],
+    correct_answer: "trinkt",
+  },
+  {
+    id: "q18-8",
+    quiz_id: 18,
+    question_text: "Ich _____ den Film. (schauen)",
+    question_hint: "Konjugieren Sie das Verb im Präsens!",
+    format: "F1",
+    options: ["schaue", "schaust", "schaut", "schauen"],
+    correct_answer: "schaue",
+  },
 ];

@@ -1,6 +1,78 @@
-// Quiz 7 - Шаблон упражнения
-// Формат: F0 - Flashcards / Wortschatz
+// Quiz 7 - der / die / das einsetzen
+// Формат: F1 - Einsetzen
+// Уровень: A1
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q7-1",
+    quiz_id: 7,
+    question_text: "_____ Tisch ist groß.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["der", "die", "das"],
+    correct_answer: "Der",
+  },
+  {
+    id: "q7-2",
+    quiz_id: 7,
+    question_text: "_____ Lampe ist neu.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["die", "der", "das"],
+    correct_answer: "Die",
+  },
+  {
+    id: "q7-3",
+    quiz_id: 7,
+    question_text: "_____ Buch liegt auf dem Tisch.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["das", "der", "die"],
+    correct_answer: "Das",
+  },
+  {
+    id: "q7-4",
+    quiz_id: 7,
+    question_text: "_____ Mann arbeitet hier.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["der", "die", "das"],
+    correct_answer: "Der",
+  },
+  {
+    id: "q7-5",
+    quiz_id: 7,
+    question_text: "_____ Frau spricht Deutsch.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["die", "der", "das"],
+    correct_answer: "Die",
+  },
+  {
+    id: "q7-6",
+    quiz_id: 7,
+    question_text: "_____ Kind spielt im Garten.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["das", "der", "die"],
+    correct_answer: "Das",
+  },
+  {
+    id: "q7-7",
+    quiz_id: 7,
+    question_text: "_____ Stuhl ist bequem.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["der", "die", "das"],
+    correct_answer: "Der",
+  },
+  {
+    id: "q7-8",
+    quiz_id: 7,
+    question_text: "_____ Tasche ist schwer.",
+    question_hint: "Wählen Sie den richtigen Artikel!",
+    format: "F1",
+    options: ["die", "der", "das"],
+    correct_answer: "Die",
+  },
 ];

@@ -1,6 +1,78 @@
-// Quiz 52 - Шаблон упражнения
-// Формат: F5 - Umformen (WordBuilder)
+// Quiz 52 - obwohl / trotzdem
+// Формат: F3 - Satzstruktur mit Auswahl
+// Уровень: B1
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q52-1",
+    quiz_id: 52,
+    question_text: "_____ es regnet, gehen wir spazieren.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["Obwohl", "Trotzdem", "Weil", "Denn"],
+    correct_answer: "Obwohl",
+  },
+  {
+    id: "q52-2",
+    quiz_id: 52,
+    question_text: "Er ist müde, _____ arbeitet er weiter.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["trotzdem", "obwohl", "weil", "denn"],
+    correct_answer: "trotzdem",
+  },
+  {
+    id: "q52-3",
+    quiz_id: 52,
+    question_text: "_____ sie krank ist, geht sie zur Arbeit.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["Obwohl", "Trotzdem", "Weil", "Wenn"],
+    correct_answer: "Obwohl",
+  },
+  {
+    id: "q52-4",
+    quiz_id: 52,
+    question_text: "Das Essen war teuer, _____ hat es gut geschmeckt.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["trotzdem", "obwohl", "aber", "denn"],
+    correct_answer: "trotzdem",
+  },
+  {
+    id: "q52-5",
+    quiz_id: 52,
+    question_text: "_____ er viel gelernt hat, hat er die Prüfung nicht bestanden.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["Obwohl", "Trotzdem", "Weil", "Wenn"],
+    correct_answer: "Obwohl",
+  },
+  {
+    id: "q52-6",
+    quiz_id: 52,
+    question_text: "Sie hat wenig Geld, _____ kauft sie teure Kleidung.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["trotzdem", "obwohl", "aber", "weil"],
+    correct_answer: "trotzdem",
+  },
+  {
+    id: "q52-7",
+    quiz_id: 52,
+    question_text: "_____ das Wetter schlecht war, sind wir gewandert.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["Obwohl", "Trotzdem", "Weil", "Wenn"],
+    correct_answer: "Obwohl",
+  },
+  {
+    id: "q52-8",
+    quiz_id: 52,
+    question_text: "Er mag keinen Sport, _____ geht er jeden Tag joggen.",
+    question_hint: "Wählen Sie: obwohl oder trotzdem?",
+    format: "F3",
+    options: ["trotzdem", "obwohl", "aber", "denn"],
+    correct_answer: "trotzdem",
+  },
 ];

@@ -1,6 +1,78 @@
-// Quiz 8 - Шаблон упражнения
-// Формат: F0 - Flashcards / Wortschatz
+// Quiz 8 - ein / eine einsetzen
+// Формат: F1 - Einsetzen
+// Уровень: A1
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "q8-1",
+    quiz_id: 8,
+    question_text: "Das ist _____ Buch.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["ein", "eine"],
+    correct_answer: "ein",
+  },
+  {
+    id: "q8-2",
+    quiz_id: 8,
+    question_text: "Ich habe _____ Frage.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["eine", "ein"],
+    correct_answer: "eine",
+  },
+  {
+    id: "q8-3",
+    quiz_id: 8,
+    question_text: "Er kauft _____ Auto.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["ein", "eine"],
+    correct_answer: "ein",
+  },
+  {
+    id: "q8-4",
+    quiz_id: 8,
+    question_text: "Sie isst _____ Apfel.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["einen", "eine", "ein"],
+    correct_answer: "einen",
+  },
+  {
+    id: "q8-5",
+    quiz_id: 8,
+    question_text: "Das ist _____ Schule.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["eine", "ein"],
+    correct_answer: "eine",
+  },
+  {
+    id: "q8-6",
+    quiz_id: 8,
+    question_text: "Ich brauche _____ Kugelschreiber.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["einen", "eine", "ein"],
+    correct_answer: "einen",
+  },
+  {
+    id: "q8-7",
+    quiz_id: 8,
+    question_text: "Sie hat _____ Hund.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["einen", "eine", "ein"],
+    correct_answer: "einen",
+  },
+  {
+    id: "q8-8",
+    quiz_id: 8,
+    question_text: "Das ist _____ gute Idee.",
+    question_hint: "Wählen Sie: ein oder eine?",
+    format: "F1",
+    options: ["eine", "ein"],
+    correct_answer: "eine",
+  },
 ];
