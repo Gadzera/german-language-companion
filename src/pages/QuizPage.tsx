@@ -321,6 +321,7 @@ export const QuizPage: React.FC = () => {
       id: q.id,
       statement: q.question_text,
       correct_answer: q.correct_answer === 'Richtig' ? 'R' as const : 'F' as const,
+      text_reference: (q as any).text_reference || undefined,
     }));
 
     const handleF11Complete = (score: number, total: number) => {
