@@ -1,6 +1,78 @@
-// Quiz 92 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 92 - ZT-1: Lesen - Texte und Überschriften zuordnen
+// Формат: F3 - Выбор правильного варианта
+// Задание: Ordnen Sie die Überschrift dem passenden Text zu!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-92-1",
+    quiz_id: 92,
+    question_text: "Der Deutschkurs beginnt am Montag um 9 Uhr. Bitte bringen Sie ein Heft und einen Kugelschreiber mit.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Kursinformation", "Arzttermin", "Einkaufsliste", "Wetterbericht"],
+    correct_answer: "Kursinformation",
+  },
+  {
+    id: "zt1-92-2",
+    quiz_id: 92,
+    question_text: "Am Wochenende wird es sonnig und warm. Die Temperaturen steigen auf 25 Grad.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Wetterbericht", "Kursinformation", "Stellenanzeige", "Rezept"],
+    correct_answer: "Wetterbericht",
+  },
+  {
+    id: "zt1-92-3",
+    quiz_id: 92,
+    question_text: "Wir suchen eine freundliche Verkäuferin für unser Bäckereigeschäft. Arbeitszeit: Mo-Fr, 6-14 Uhr.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Stellenanzeige", "Wohnungsanzeige", "Veranstaltung", "Öffnungszeiten"],
+    correct_answer: "Stellenanzeige",
+  },
+  {
+    id: "zt1-92-4",
+    quiz_id: 92,
+    question_text: "Sehr geehrter Herr Müller, Ihr Termin bei Dr. Schmidt ist am Freitag um 14:30 Uhr.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Arzttermin", "Einladung", "Beschwerde", "Bestellung"],
+    correct_answer: "Arzttermin",
+  },
+  {
+    id: "zt1-92-5",
+    quiz_id: 92,
+    question_text: "2-Zimmer-Wohnung, 55 m², Balkon, Küche, Bad. Miete: 650 Euro warm. Ab sofort frei.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Wohnungsanzeige", "Stellenanzeige", "Kursinformation", "Reiseangebot"],
+    correct_answer: "Wohnungsanzeige",
+  },
+  {
+    id: "zt1-92-6",
+    quiz_id: 92,
+    question_text: "Am Samstag findet im Stadtpark ein großes Sommerfest statt. Eintritt frei! Für Kinder gibt es viele Spiele.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Veranstaltung", "Wetterbericht", "Kursinformation", "Arzttermin"],
+    correct_answer: "Veranstaltung",
+  },
+  {
+    id: "zt1-92-7",
+    quiz_id: 92,
+    question_text: "Das Büro ist geöffnet: Montag bis Freitag von 8 bis 17 Uhr. Samstag und Sonntag geschlossen.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Öffnungszeiten", "Stellenanzeige", "Einladung", "Wohnungsanzeige"],
+    correct_answer: "Öffnungszeiten",
+  },
+  {
+    id: "zt1-92-8",
+    quiz_id: 92,
+    question_text: "Liebe Maria, ich lade dich herzlich zu meiner Geburtstagsparty am 15. Mai ein. Feier beginnt um 19 Uhr.",
+    question_hint: "Ordnen Sie die Überschrift dem passenden Text zu!",
+    format: "F3",
+    options: ["Einladung", "Arzttermin", "Beschwerde", "Kursinformation"],
+    correct_answer: "Einladung",
+  },
 ];

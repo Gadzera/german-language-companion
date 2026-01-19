@@ -1,6 +1,78 @@
-// Quiz 105 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 105 - ZT-3: Temporale Konjunktionen
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie die passende temporale Konjunktion!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt3-105-1",
+    quiz_id: 105,
+    question_text: "_____ ich aufwachte, schien die Sonne.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: als, wenn, nachdem, bevor!",
+    format: "F3",
+    options: ["Als", "Wenn", "Nachdem", "Bevor"],
+    correct_answer: "Als",
+  },
+  {
+    id: "zt3-105-2",
+    quiz_id: 105,
+    question_text: "_____ ich müde bin, trinke ich Kaffee.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: als, wenn, nachdem, bevor!",
+    format: "F3",
+    options: ["Wenn", "Als", "Nachdem", "Während"],
+    correct_answer: "Wenn",
+  },
+  {
+    id: "zt3-105-3",
+    quiz_id: 105,
+    question_text: "_____ er die Prüfung bestanden hatte, feierte er.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: als, wenn, nachdem, bevor!",
+    format: "F3",
+    options: ["Nachdem", "Bevor", "Als", "Während"],
+    correct_answer: "Nachdem",
+  },
+  {
+    id: "zt3-105-4",
+    quiz_id: 105,
+    question_text: "Ich wasche mir die Hände, _____ ich esse.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: als, wenn, nachdem, bevor!",
+    format: "F3",
+    options: ["bevor", "nachdem", "während", "seit"],
+    correct_answer: "bevor",
+  },
+  {
+    id: "zt3-105-5",
+    quiz_id: 105,
+    question_text: "_____ sie kocht, hört sie Musik.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: während, nachdem, bevor, bis!",
+    format: "F3",
+    options: ["Während", "Nachdem", "Bevor", "Als"],
+    correct_answer: "Während",
+  },
+  {
+    id: "zt3-105-6",
+    quiz_id: 105,
+    question_text: "Warte, _____ ich fertig bin!",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: bis, seit, während, nachdem!",
+    format: "F3",
+    options: ["bis", "seit", "während", "nachdem"],
+    correct_answer: "bis",
+  },
+  {
+    id: "zt3-105-7",
+    quiz_id: 105,
+    question_text: "_____ wir uns kennen, sind wir gute Freunde.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: bis, seit, während, nachdem!",
+    format: "F3",
+    options: ["Seit", "Bis", "Während", "Bevor"],
+    correct_answer: "Seit",
+  },
+  {
+    id: "zt3-105-8",
+    quiz_id: 105,
+    question_text: "_____ ich Kind war, lebte ich in München.",
+    question_hint: "Wählen Sie die passende temporale Konjunktion: als, wenn, nachdem, bevor!",
+    format: "F3",
+    options: ["Als", "Wenn", "Nachdem", "Während"],
+    correct_answer: "Als",
+  },
 ];

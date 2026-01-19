@@ -1,6 +1,78 @@
-// Quiz 104 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 104 - ZT-3: Nebensätze mit Konjunktionen
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie die passende Konjunktion!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt3-104-1",
+    quiz_id: 104,
+    question_text: "Ich bleibe zu Hause, _____ ich krank bin.",
+    question_hint: "Wählen Sie die passende Konjunktion: weil, obwohl, damit, bevor!",
+    format: "F3",
+    options: ["weil", "obwohl", "damit", "bevor"],
+    correct_answer: "weil",
+  },
+  {
+    id: "zt3-104-2",
+    quiz_id: 104,
+    question_text: "Er geht zur Arbeit, _____ er Fieber hat.",
+    question_hint: "Wählen Sie die passende Konjunktion: weil, obwohl, damit, bevor!",
+    format: "F3",
+    options: ["obwohl", "weil", "damit", "nachdem"],
+    correct_answer: "obwohl",
+  },
+  {
+    id: "zt3-104-3",
+    quiz_id: 104,
+    question_text: "Ich lerne Deutsch, _____ ich in Deutschland arbeiten kann.",
+    question_hint: "Wählen Sie die passende Konjunktion: weil, obwohl, damit, bevor!",
+    format: "F3",
+    options: ["damit", "weil", "obwohl", "nachdem"],
+    correct_answer: "damit",
+  },
+  {
+    id: "zt3-104-4",
+    quiz_id: 104,
+    question_text: "_____ ich frühstücke, dusche ich.",
+    question_hint: "Wählen Sie die passende Konjunktion: weil, obwohl, damit, bevor!",
+    format: "F3",
+    options: ["Bevor", "Nachdem", "Weil", "Obwohl"],
+    correct_answer: "Bevor",
+  },
+  {
+    id: "zt3-104-5",
+    quiz_id: 104,
+    question_text: "_____ er nach Hause kam, war seine Frau schon eingeschlafen.",
+    question_hint: "Wählen Sie die passende Konjunktion: als, wenn, weil, damit!",
+    format: "F3",
+    options: ["Als", "Wenn", "Weil", "Bevor"],
+    correct_answer: "Als",
+  },
+  {
+    id: "zt3-104-6",
+    quiz_id: 104,
+    question_text: "_____ das Wetter schön ist, gehen wir spazieren.",
+    question_hint: "Wählen Sie die passende Konjunktion: als, wenn, weil, damit!",
+    format: "F3",
+    options: ["Wenn", "Als", "Obwohl", "Bevor"],
+    correct_answer: "Wenn",
+  },
+  {
+    id: "zt3-104-7",
+    quiz_id: 104,
+    question_text: "Ich warte hier, _____ du zurückkommst.",
+    question_hint: "Wählen Sie die passende Konjunktion: bis, seit, während, nachdem!",
+    format: "F3",
+    options: ["bis", "seit", "während", "nachdem"],
+    correct_answer: "bis",
+  },
+  {
+    id: "zt3-104-8",
+    quiz_id: 104,
+    question_text: "_____ ich in Berlin wohne, lerne ich Deutsch.",
+    question_hint: "Wählen Sie die passende Konjunktion: bis, seit, während, nachdem!",
+    format: "F3",
+    options: ["Seit", "Bis", "Während", "Bevor"],
+    correct_answer: "Seit",
+  },
 ];

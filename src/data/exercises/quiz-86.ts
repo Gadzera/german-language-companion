@@ -1,6 +1,78 @@
-// Quiz 86 - Шаблон упражнения
-// Формат: F9 - Wort passt nicht
+// Quiz 86 - ZT-1: Negation (nicht/kein)
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie die richtige Negation: nicht oder kein(e)!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-86-1",
+    quiz_id: 86,
+    question_text: "Ich habe _____ Auto.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["kein", "nicht", "keine", "keinen"],
+    correct_answer: "kein",
+  },
+  {
+    id: "zt1-86-2",
+    quiz_id: 86,
+    question_text: "Er arbeitet heute _____.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["nicht", "kein", "keine", "keinen"],
+    correct_answer: "nicht",
+  },
+  {
+    id: "zt1-86-3",
+    quiz_id: 86,
+    question_text: "Das ist _____ gute Idee.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["keine", "nicht", "kein", "keinen"],
+    correct_answer: "keine",
+  },
+  {
+    id: "zt1-86-4",
+    quiz_id: 86,
+    question_text: "Ich verstehe das _____.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["nicht", "kein", "keine", "keinen"],
+    correct_answer: "nicht",
+  },
+  {
+    id: "zt1-86-5",
+    quiz_id: 86,
+    question_text: "Er hat _____ Geschwister.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["keine", "nicht", "kein", "keinen"],
+    correct_answer: "keine",
+  },
+  {
+    id: "zt1-86-6",
+    quiz_id: 86,
+    question_text: "Sie kommt heute _____ zur Arbeit.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["nicht", "kein", "keine", "keinen"],
+    correct_answer: "nicht",
+  },
+  {
+    id: "zt1-86-7",
+    quiz_id: 86,
+    question_text: "Wir haben _____ Zeit.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["keine", "nicht", "kein", "keinen"],
+    correct_answer: "keine",
+  },
+  {
+    id: "zt1-86-8",
+    quiz_id: 86,
+    question_text: "Das Buch gefällt mir _____.",
+    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    format: "F3",
+    options: ["nicht", "kein", "keine", "keinen"],
+    correct_answer: "nicht",
+  },
 ];

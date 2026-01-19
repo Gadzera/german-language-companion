@@ -1,6 +1,78 @@
-// Quiz 89 - Шаблон упражнения
-// Формат: F9 - Wort passt nicht
+// Quiz 89 - ZT-1: Possessivartikel
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie den passenden Possessivartikel!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-89-1",
+    quiz_id: 89,
+    question_text: "Das ist _____ Buch. (ich)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["mein", "dein", "sein", "ihr"],
+    correct_answer: "mein",
+  },
+  {
+    id: "zt1-89-2",
+    quiz_id: 89,
+    question_text: "Wo ist _____ Tasche? (du)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["deine", "meine", "seine", "ihre"],
+    correct_answer: "deine",
+  },
+  {
+    id: "zt1-89-3",
+    quiz_id: 89,
+    question_text: "Er sucht _____ Schlüssel. (er)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["seinen", "meinen", "deinen", "ihren"],
+    correct_answer: "seinen",
+  },
+  {
+    id: "zt1-89-4",
+    quiz_id: 89,
+    question_text: "Sie liebt _____ Kinder. (sie)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["ihre", "seine", "unsere", "eure"],
+    correct_answer: "ihre",
+  },
+  {
+    id: "zt1-89-5",
+    quiz_id: 89,
+    question_text: "Wir besuchen _____ Eltern. (wir)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["unsere", "eure", "ihre", "seine"],
+    correct_answer: "unsere",
+  },
+  {
+    id: "zt1-89-6",
+    quiz_id: 89,
+    question_text: "Habt ihr _____ Hausaufgaben gemacht? (ihr)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["eure", "unsere", "ihre", "seine"],
+    correct_answer: "eure",
+  },
+  {
+    id: "zt1-89-7",
+    quiz_id: 89,
+    question_text: "Die Kinder spielen mit _____ Spielzeug. (sie, Pl.)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["ihrem", "seinem", "unserem", "eurem"],
+    correct_answer: "ihrem",
+  },
+  {
+    id: "zt1-89-8",
+    quiz_id: 89,
+    question_text: "Ich gebe _____ Freund das Geschenk. (ich)",
+    question_hint: "Wählen Sie den passenden Possessivartikel!",
+    format: "F3",
+    options: ["meinem", "deinem", "seinem", "ihrem"],
+    correct_answer: "meinem",
+  },
 ];

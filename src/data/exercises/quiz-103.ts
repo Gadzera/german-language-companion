@@ -1,6 +1,78 @@
-// Quiz 103 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 103 - ZT-3: Lückentext - Verben einsetzen
+// Формат: F3 - Выбор правильного варианта
+// Задание: Setzen Sie das passende Verb in der richtigen Form ein!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt3-103-1",
+    quiz_id: 103,
+    question_text: "Gestern _____ ich den ganzen Tag zu Hause.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Präteritum)",
+    format: "F3",
+    options: ["war", "bin", "hatte", "wurde"],
+    correct_answer: "war",
+  },
+  {
+    id: "zt3-103-2",
+    quiz_id: 103,
+    question_text: "Wir _____ letztes Jahr nach Italien gereist.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Perfekt)",
+    format: "F3",
+    options: ["sind", "haben", "waren", "hatten"],
+    correct_answer: "sind",
+  },
+  {
+    id: "zt3-103-3",
+    quiz_id: 103,
+    question_text: "Er _____ mir gestern einen Brief geschrieben.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Perfekt)",
+    format: "F3",
+    options: ["hat", "ist", "hatte", "war"],
+    correct_answer: "hat",
+  },
+  {
+    id: "zt3-103-4",
+    quiz_id: 103,
+    question_text: "Wenn ich Zeit _____, würde ich mehr Sport machen.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Konjunktiv II)",
+    format: "F3",
+    options: ["hätte", "habe", "hatte", "wäre"],
+    correct_answer: "hätte",
+  },
+  {
+    id: "zt3-103-5",
+    quiz_id: 103,
+    question_text: "Die Kinder _____ im Garten gespielt.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Perfekt)",
+    format: "F3",
+    options: ["haben", "sind", "hatten", "waren"],
+    correct_answer: "haben",
+  },
+  {
+    id: "zt3-103-6",
+    quiz_id: 103,
+    question_text: "Ich _____ gern nach Paris fahren.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Konjunktiv II)",
+    format: "F3",
+    options: ["würde", "werde", "will", "wollte"],
+    correct_answer: "würde",
+  },
+  {
+    id: "zt3-103-7",
+    quiz_id: 103,
+    question_text: "Das Buch _____ von vielen Menschen gelesen.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Passiv)",
+    format: "F3",
+    options: ["wird", "hat", "ist", "wurde"],
+    correct_answer: "wird",
+  },
+  {
+    id: "zt3-103-8",
+    quiz_id: 103,
+    question_text: "Nachdem er gegessen _____, ging er spazieren.",
+    question_hint: "Setzen Sie das passende Verb in der richtigen Form ein! (Plusquamperfekt)",
+    format: "F3",
+    options: ["hatte", "hat", "war", "ist"],
+    correct_answer: "hatte",
+  },
 ];

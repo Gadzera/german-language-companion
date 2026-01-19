@@ -1,6 +1,78 @@
-// Quiz 88 - Шаблон упражнения
-// Формат: F9 - Wort passt nicht
+// Quiz 88 - ZT-1: Modalverben
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie das passende Modalverb!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-88-1",
+    quiz_id: 88,
+    question_text: "Ich _____ heute nicht arbeiten. Ich bin krank.",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["kann", "muss", "will", "darf"],
+    correct_answer: "kann",
+  },
+  {
+    id: "zt1-88-2",
+    quiz_id: 88,
+    question_text: "Du _____ mehr Wasser trinken. Das ist gesund.",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["sollst", "kannst", "willst", "darfst"],
+    correct_answer: "sollst",
+  },
+  {
+    id: "zt1-88-3",
+    quiz_id: 88,
+    question_text: "Hier _____ man nicht rauchen. Es ist verboten.",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["darf", "kann", "muss", "will"],
+    correct_answer: "darf",
+  },
+  {
+    id: "zt1-88-4",
+    quiz_id: 88,
+    question_text: "Er _____ morgen früh aufstehen. Er hat einen Termin.",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["muss", "kann", "will", "darf"],
+    correct_answer: "muss",
+  },
+  {
+    id: "zt1-88-5",
+    quiz_id: 88,
+    question_text: "_____ du mir bitte helfen?",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["Kannst", "Musst", "Willst", "Darfst"],
+    correct_answer: "Kannst",
+  },
+  {
+    id: "zt1-88-6",
+    quiz_id: 88,
+    question_text: "Wir _____ heute ins Kino gehen. Hast du Lust?",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["wollen", "müssen", "können", "sollen"],
+    correct_answer: "wollen",
+  },
+  {
+    id: "zt1-88-7",
+    quiz_id: 88,
+    question_text: "Kinder _____ nicht so viel Schokolade essen.",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["sollen", "wollen", "können", "müssen"],
+    correct_answer: "sollen",
+  },
+  {
+    id: "zt1-88-8",
+    quiz_id: 88,
+    question_text: "_____ ich hier parken?",
+    question_hint: "Wählen Sie das passende Modalverb!",
+    format: "F3",
+    options: ["Darf", "Muss", "Will", "Soll"],
+    correct_answer: "Darf",
+  },
 ];

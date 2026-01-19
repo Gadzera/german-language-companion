@@ -1,6 +1,96 @@
-// Quiz 90 - Шаблон упражнения
-// Формат: F9 - Wort passt nicht
+// Quiz 90 - ZT-1: Wortschatz - Nomen mit Artikeln
+// Формат: F2 - Выбор артикля
+// Задание: Wählen Sie den richtigen Artikel!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-90-1",
+    quiz_id: 90,
+    question_text: "_____ Tisch",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+  },
+  {
+    id: "zt1-90-2",
+    quiz_id: 90,
+    question_text: "_____ Lampe",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["die", "der", "das"],
+    correct_answer: "die",
+  },
+  {
+    id: "zt1-90-3",
+    quiz_id: 90,
+    question_text: "_____ Fenster",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["das", "der", "die"],
+    correct_answer: "das",
+  },
+  {
+    id: "zt1-90-4",
+    quiz_id: 90,
+    question_text: "_____ Stuhl",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+  },
+  {
+    id: "zt1-90-5",
+    quiz_id: 90,
+    question_text: "_____ Küche",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["die", "der", "das"],
+    correct_answer: "die",
+  },
+  {
+    id: "zt1-90-6",
+    quiz_id: 90,
+    question_text: "_____ Bett",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["das", "der", "die"],
+    correct_answer: "das",
+  },
+  {
+    id: "zt1-90-7",
+    quiz_id: 90,
+    question_text: "_____ Schrank",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+  },
+  {
+    id: "zt1-90-8",
+    quiz_id: 90,
+    question_text: "_____ Wohnung",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["die", "der", "das"],
+    correct_answer: "die",
+  },
+  {
+    id: "zt1-90-9",
+    quiz_id: 90,
+    question_text: "_____ Zimmer",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["das", "der", "die"],
+    correct_answer: "das",
+  },
+  {
+    id: "zt1-90-10",
+    quiz_id: 90,
+    question_text: "_____ Tür",
+    question_hint: "Wählen Sie den richtigen Artikel: der, die oder das!",
+    format: "F2",
+    options: ["die", "der", "das"],
+    correct_answer: "die",
+  },
 ];

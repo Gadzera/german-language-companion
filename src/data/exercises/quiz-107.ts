@@ -1,6 +1,96 @@
-// Quiz 107 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 107 - ZT-3: Adjektive - Komparation (Positiv, Komparativ, Superlativ)
+// Формат: F2 - Выбор правильной формы
+// Задание: Wählen Sie die richtige Steigerungsform des Adjektivs!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt3-107-1",
+    quiz_id: 107,
+    question_text: "groß → größer → _____",
+    question_hint: "Wählen Sie die richtige Superlativ-Form!",
+    format: "F2",
+    options: ["am größten", "größesten", "am großesten", "größte"],
+    correct_answer: "am größten",
+  },
+  {
+    id: "zt3-107-2",
+    quiz_id: 107,
+    question_text: "gut → _____ → am besten",
+    question_hint: "Wählen Sie die richtige Komparativ-Form!",
+    format: "F2",
+    options: ["besser", "guter", "mehr gut", "am guten"],
+    correct_answer: "besser",
+  },
+  {
+    id: "zt3-107-3",
+    quiz_id: 107,
+    question_text: "viel → mehr → _____",
+    question_hint: "Wählen Sie die richtige Superlativ-Form!",
+    format: "F2",
+    options: ["am meisten", "am mehrsten", "meist", "vielstes"],
+    correct_answer: "am meisten",
+  },
+  {
+    id: "zt3-107-4",
+    quiz_id: 107,
+    question_text: "gern → _____ → am liebsten",
+    question_hint: "Wählen Sie die richtige Komparativ-Form!",
+    format: "F2",
+    options: ["lieber", "gerner", "mehr gern", "liebster"],
+    correct_answer: "lieber",
+  },
+  {
+    id: "zt3-107-5",
+    quiz_id: 107,
+    question_text: "hoch → höher → _____",
+    question_hint: "Wählen Sie die richtige Superlativ-Form!",
+    format: "F2",
+    options: ["am höchsten", "am hochsten", "höchste", "hochesten"],
+    correct_answer: "am höchsten",
+  },
+  {
+    id: "zt3-107-6",
+    quiz_id: 107,
+    question_text: "kalt → _____ → am kältesten",
+    question_hint: "Wählen Sie die richtige Komparativ-Form!",
+    format: "F2",
+    options: ["kälter", "kalter", "mehr kalt", "kälteste"],
+    correct_answer: "kälter",
+  },
+  {
+    id: "zt3-107-7",
+    quiz_id: 107,
+    question_text: "nah → näher → _____",
+    question_hint: "Wählen Sie die richtige Superlativ-Form!",
+    format: "F2",
+    options: ["am nächsten", "am nahesten", "näheste", "am nähsten"],
+    correct_answer: "am nächsten",
+  },
+  {
+    id: "zt3-107-8",
+    quiz_id: 107,
+    question_text: "alt → _____ → am ältesten",
+    question_hint: "Wählen Sie die richtige Komparativ-Form!",
+    format: "F2",
+    options: ["älter", "alter", "mehr alt", "älteste"],
+    correct_answer: "älter",
+  },
+  {
+    id: "zt3-107-9",
+    quiz_id: 107,
+    question_text: "teuer → teurer → _____",
+    question_hint: "Wählen Sie die richtige Superlativ-Form!",
+    format: "F2",
+    options: ["am teuersten", "am teurersten", "teuerste", "am teuresten"],
+    correct_answer: "am teuersten",
+  },
+  {
+    id: "zt3-107-10",
+    quiz_id: 107,
+    question_text: "dunkel → _____ → am dunkelsten",
+    question_hint: "Wählen Sie die richtige Komparativ-Form!",
+    format: "F2",
+    options: ["dunkler", "dunkeler", "mehr dunkel", "dunkelste"],
+    correct_answer: "dunkler",
+  },
 ];

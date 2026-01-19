@@ -1,6 +1,78 @@
-// Quiz 87 - Шаблон упражнения
-// Формат: F9 - Wort passt nicht
+// Quiz 87 - ZT-1: Konnektoren (und, oder, aber, denn)
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie den passenden Konnektor: und, oder, aber, denn!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt1-87-1",
+    quiz_id: 87,
+    question_text: "Ich möchte Kaffee, _____ ich bin müde.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["denn", "und", "oder", "aber"],
+    correct_answer: "denn",
+  },
+  {
+    id: "zt1-87-2",
+    quiz_id: 87,
+    question_text: "Er spricht Deutsch _____ Englisch.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["und", "oder", "aber", "denn"],
+    correct_answer: "und",
+  },
+  {
+    id: "zt1-87-3",
+    quiz_id: 87,
+    question_text: "Möchtest du Tee _____ Kaffee?",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["oder", "und", "aber", "denn"],
+    correct_answer: "oder",
+  },
+  {
+    id: "zt1-87-4",
+    quiz_id: 87,
+    question_text: "Ich möchte kommen, _____ ich habe keine Zeit.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["aber", "und", "oder", "denn"],
+    correct_answer: "aber",
+  },
+  {
+    id: "zt1-87-5",
+    quiz_id: 87,
+    question_text: "Sie kauft Brot _____ Butter.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["und", "oder", "aber", "denn"],
+    correct_answer: "und",
+  },
+  {
+    id: "zt1-87-6",
+    quiz_id: 87,
+    question_text: "Wir bleiben zu Hause, _____ es regnet.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["denn", "und", "oder", "aber"],
+    correct_answer: "denn",
+  },
+  {
+    id: "zt1-87-7",
+    quiz_id: 87,
+    question_text: "Das Essen ist gut, _____ teuer.",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["aber", "und", "oder", "denn"],
+    correct_answer: "aber",
+  },
+  {
+    id: "zt1-87-8",
+    quiz_id: 87,
+    question_text: "Kommst du mit _____ bleibst du hier?",
+    question_hint: "Wählen Sie den passenden Konnektor: und, oder, aber, denn!",
+    format: "F3",
+    options: ["oder", "und", "aber", "denn"],
+    correct_answer: "oder",
+  },
 ];
