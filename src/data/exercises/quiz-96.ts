@@ -1,12 +1,12 @@
 // Quiz 96 - ZT-2: Reflexive Verben einsetzen
 // Формат: F4 - Вставить слова из списка в пропуски
-// Задание: Fügen Sie die angegebenen reflexiven Verben in die Sätze ein!
+// Задание: Fuegen Sie die angegebenen reflexiven Verben in die Saetze ein!
 
 export default [
   {
     id: "zt2-96-1",
     quiz_id: 96,
-    question_text: "Ich möchte _____ in meiner Freizeit nicht _____.",
+    question_text: "Ich moechte _____ in meiner Freizeit nicht _____.",
     question_hint: "Setzen Sie die reflexiven Verben ein: sich langweilen",
     format: "F4",
     options: ["mich", "langweilen"],
@@ -16,7 +16,7 @@ export default [
   {
     id: "zt2-96-2",
     quiz_id: 96,
-    question_text: "Deshalb _____ ich _____ oft mit meinen Freund*innen.",
+    question_text: "Deshalb _____ ich _____ oft mit meinen Freunden.",
     question_hint: "Setzen Sie die reflexiven Verben ein: sich treffen",
     format: "F4",
     options: ["treffe", "mich"],
@@ -26,7 +26,7 @@ export default [
   {
     id: "zt2-96-3",
     quiz_id: 96,
-    question_text: "Wir _____ _____ über verschiedene Themen.",
+    question_text: "Wir _____ _____ ueber verschiedene Themen.",
     question_hint: "Setzen Sie die reflexiven Verben ein: sich unterhalten",
     format: "F4",
     options: ["unterhalten", "uns"],
@@ -36,7 +36,7 @@ export default [
   {
     id: "zt2-96-4",
     quiz_id: 96,
-    question_text: "Nach unseren Treffen fragt Sabine: „_____ ihr _____ schon auf unser nächstes Treffen?"",
+    question_text: "Nach unseren Treffen fragt Sabine: _____ ihr _____ schon auf unser naechstes Treffen?",
     question_hint: "Setzen Sie die reflexiven Verben ein: sich freuen",
     format: "F4",
     options: ["Freut", "euch"],

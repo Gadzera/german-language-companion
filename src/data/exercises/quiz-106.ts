@@ -1,6 +1,78 @@
-// Quiz 106 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 106 - ZT-3: Relativpronomen
+// Формат: F3 - Выбор правильного варианта
+// Задание: Wählen Sie das passende Relativpronomen!
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt3-106-1",
+    quiz_id: 106,
+    question_text: "Das ist der Mann, _____ ich gestern gesehen habe.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["den", "der", "dem", "dessen"],
+    correct_answer: "den",
+  },
+  {
+    id: "zt3-106-2",
+    quiz_id: 106,
+    question_text: "Die Frau, _____ dort steht, ist meine Lehrerin.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["die", "der", "dem", "deren"],
+    correct_answer: "die",
+  },
+  {
+    id: "zt3-106-3",
+    quiz_id: 106,
+    question_text: "Das Buch, _____ auf dem Tisch liegt, gehört mir.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["das", "die", "der", "dem"],
+    correct_answer: "das",
+  },
+  {
+    id: "zt3-106-4",
+    quiz_id: 106,
+    question_text: "Der Kollege, _____ ich geholfen habe, ist sehr nett.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["dem", "den", "der", "dessen"],
+    correct_answer: "dem",
+  },
+  {
+    id: "zt3-106-5",
+    quiz_id: 106,
+    question_text: "Die Kinder, _____ im Park spielen, sind laut.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, denen!",
+    format: "F3",
+    options: ["die", "der", "das", "denen"],
+    correct_answer: "die",
+  },
+  {
+    id: "zt3-106-6",
+    quiz_id: 106,
+    question_text: "Das ist das Haus, in _____ ich wohne.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["dem", "das", "der", "die"],
+    correct_answer: "dem",
+  },
+  {
+    id: "zt3-106-7",
+    quiz_id: 106,
+    question_text: "Die Freunde, mit _____ ich ins Kino gehe, sind lustig.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, denen!",
+    format: "F3",
+    options: ["denen", "die", "der", "dem"],
+    correct_answer: "denen",
+  },
+  {
+    id: "zt3-106-8",
+    quiz_id: 106,
+    question_text: "Der Film, _____ wir gesehen haben, war spannend.",
+    question_hint: "Wählen Sie das passende Relativpronomen: der, die, das, den, dem!",
+    format: "F3",
+    options: ["den", "der", "das", "dem"],
+    correct_answer: "den",
+  },
 ];
