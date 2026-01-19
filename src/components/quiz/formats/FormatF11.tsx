@@ -74,14 +74,17 @@ const FormatF11: React.FC<FormatF11Props> = ({ readingText, questions, onComplet
   };
 
   return (
-    <div className="space-y-6">
-      {/* Reading Text */}
-      <div className="bg-muted/30 rounded-lg p-4 md:p-6 border sticky top-0 z-10 max-h-[40vh] overflow-y-auto">
-        <h3 className="font-semibold text-lg mb-3 text-primary">Text:</h3>
+    <div className="flex flex-col gap-6">
+      {/* Reading Text - Fixed with proper background */}
+      <div className="bg-card rounded-lg p-4 md:p-6 border shadow-sm sticky top-0 z-20 max-h-[35vh] overflow-y-auto">
+        <h3 className="font-semibold text-lg mb-3 text-primary border-b pb-2">Text:</h3>
         <div className="prose prose-sm max-w-none text-foreground leading-relaxed whitespace-pre-line">
           {isSubmitted ? getHighlightedReadingText() : readingText}
         </div>
       </div>
+      
+      {/* Spacer to prevent overlap */}
+      <div className="h-2"></div>
 
       {/* Questions */}
       <div className="space-y-4">
