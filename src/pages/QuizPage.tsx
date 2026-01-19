@@ -3,10 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getQuizById } from '@/data/quizzes';
 import { getLocalQuestions } from '@/data/quizzes/index';
 import { getExerciseQuestions, hasExerciseFile } from '@/data/exercises/index';
-import { getFormatInstruction } from '@/data/quiz-formats/index';
+import { getFormatInstructionDe, getFormatInstructionTranslation } from '@/data/quiz-formats/index';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage, TranslationLanguage } from '@/contexts/LanguageContext';
 import { Header } from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -323,10 +323,13 @@ export const QuizPage: React.FC = () => {
       </div>
 
       <main className="max-w-md mx-auto px-4 py-6">
-        {/* Инструкция к заданию */}
-        <div className="bg-muted/50 rounded-lg px-4 py-3 mb-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            {getFormatInstruction(question.format, 'ru')}
+        {/* Инструкция к заданию — немецкий + перевод мелким шрифтом */}
+        <div className="bg-muted/50 rounded-lg px-4 py-3 mb-4 text-center space-y-1">
+          <p className="text-sm font-medium text-foreground">
+            {getFormatInstructionDe(question.format)}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {getFormatInstructionTranslation(question.format, translationLanguage as TranslationLanguage)}
           </p>
         </div>
 
