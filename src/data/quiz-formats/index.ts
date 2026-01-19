@@ -145,6 +145,18 @@ export const quizFormats: Record<string, FormatInfo> = {
       ar: 'انقر على الكلمات بالترتيب الصحيح. عدة حلول ممكنة.',
     },
   },
+  F11: {
+    id: 'F11',
+    name: 'Lesen: Richtig oder Falsch',
+    description: 'Lesen Sie den Text und beantworten Sie die Fragen',
+    instruction: 'Lesen Sie den Text und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?',
+    translations: {
+      ru: 'Прочитайте текст и решите: утверждение правильное (R) или неправильное (F)?',
+      tr: 'Metni okuyun ve karar verin: İfade doğru (R) mu yanlış (F) mı?',
+      fa: 'متن را بخوانید و تصمیم بگیرید: آیا این جمله درست (R) است یا غلط (F)؟',
+      ar: 'اقرأ النص وقرر: هل العبارة صحيحة (R) أم خاطئة (F)؟',
+    },
+  },
 };
 
 export const getFormatInfo = (formatId: string): FormatInfo | undefined => {

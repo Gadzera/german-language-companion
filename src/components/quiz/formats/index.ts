@@ -11,3 +11,4 @@ export { default as FormatF7 } from './FormatF7';
 export { default as FormatF8 } from './FormatF8';
 export { default as FormatF9 } from './FormatF9';
 export { default as FormatF10 } from './FormatF10';
+export { default as FormatF11 } from './FormatF11';

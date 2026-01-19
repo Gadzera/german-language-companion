@@ -149,6 +149,8 @@ import quiz105Questions from './quiz-105';
 import quiz106Questions from './quiz-106';
 import quiz107Questions from './quiz-107';
 import quiz108Questions from './quiz-108';
+import quiz109Questions from './quiz-109';
+import quiz110Questions from './quiz-110';
 
 // Маппинг всех 108 упражнений
 const exercisesMap: Record<number, QuizQuestion[]> = {
@@ -281,6 +283,8 @@ const exercisesMap: Record<number, QuizQuestion[]> = {
   106: quiz106Questions as unknown as QuizQuestion[],
   107: quiz107Questions as unknown as QuizQuestion[],
   108: quiz108Questions as unknown as QuizQuestion[],
+  109: quiz109Questions as unknown as QuizQuestion[],
+  110: quiz110Questions as unknown as QuizQuestion[],
 };
 
 // Получить вопросы по ID упражнения

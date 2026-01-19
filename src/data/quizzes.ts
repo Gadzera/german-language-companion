@@ -116,35 +116,37 @@ export const quizzes: Quiz[] = [
   { id: 83, title: "Wortbildung Nomen → Verb / Adjektiv", format: "F8", category: "wortschatz", level: "B1", duration: "6-8 Min" },
   { id: 84, title: "Verben + passende Ergänzung", format: "F6", category: "wortschatz", level: "B1", duration: "5-7 Min" },
 
-  // F) ZT-1 Vorbereitung
+  // F) ZT-1 Vorbereitung (Grammatik 22P + Wortschatz 8P)
   { id: 85, title: "Fragen mit Fragepronomen bilden", format: "F10", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
   { id: 86, title: "Negative Antworten bilden", format: "F5", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
   { id: 87, title: "Konnektoren (und / aber / oder / denn / sondern)", format: "F6", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
   { id: 88, title: "Modalverben einsetzen", format: "F4", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
   { id: 89, title: "Possessivartikel einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
   { id: 90, title: "Wortreihen (Nomen + Artikel)", format: "F4", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 91, title: "Gegenteile", format: "F8", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 91, title: "Gegenteile (Antonyme)", format: "F8", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
   { id: 92, title: "der / die / das einsetzen", format: "F1", category: "zt1", level: "ZT-1", duration: "3-5 Min" },
 
-  // G) ZT-2 Vorbereitung
-  { id: 93, title: "Präposition + Artikel einsetzen", format: "F3", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
-  { id: 94, title: "Reflexive Verben aus Liste einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
-  { id: 95, title: "Dativ / Akkusativ im Kontext", format: "F3", category: "zt2", level: "ZT-2", duration: "6-8 Min" },
-  { id: 96, title: "Imperativ bilden", format: "F5", category: "zt2", level: "ZT-2", duration: "4-5 Min" },
-  { id: 97, title: "Konnektoren dass / weil / wenn", format: "F6", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
-  { id: 98, title: "Personalpronomen im Text", format: "F3", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  // G) ZT-2 Vorbereitung (Hören 10P + Grammatik 20P + Wortschatz 10P)
+  { id: 93, title: "Lesen: Kinderuni Wien (Richtig/Falsch)", format: "F11", category: "zt2", level: "ZT-2", duration: "8-10 Min" },
+  { id: 94, title: "Präposition + Artikel einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  { id: 95, title: "Reflexive Verben einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
+  { id: 96, title: "Dativ / Akkusativ einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  { id: 97, title: "Imperativ bilden", format: "F5", category: "zt2", level: "ZT-2", duration: "4-5 Min" },
+  { id: 98, title: "Konnektoren dass / weil / wenn", format: "F6", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  { id: 99, title: "Personalpronomen im Text", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  { id: 100, title: "Wort passt nicht (Wortschatz)", format: "F9", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
+  { id: 101, title: "Komposita bauen", format: "F7", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
 
-  // H) ZT-3 Vorbereitung
-  { id: 99, title: "Nebensätze: wenn / warum / dass / ob / weil", format: "F10", category: "zt3", level: "ZT-3", duration: "6-8 Min" },
-  { id: 100, title: "als / wann / wenn", format: "F6", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 101, title: "Relativpronomen einsetzen", format: "F3", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 102, title: "Adjektiv Positiv / Komparativ / Superlativ", format: "F3", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 103, title: "Präposition richtig wählen", format: "F1", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 104, title: "Präteritum ↔ Infinitiv zuordnen", format: "F8", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 105, title: "Wortbildung", format: "F8", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 106, title: "Wort passt nicht", format: "F9", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 107, title: "Verb → passendes Nomen mit Artikel", format: "F1", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
-  { id: 108, title: "Hauptsatz + Nebensatz kombinieren", format: "F10", category: "zt3", level: "ZT-3", duration: "6-8 Min" },
+  // H) ZT-3 Vorbereitung (Lesen 12P + Grammatik 18P + Wortschatz 10P)
+  { id: 102, title: "Lesen: Sicherheit im Sommerurlaub (Richtig/Falsch)", format: "F11", category: "zt3", level: "ZT-3", duration: "10-12 Min" },
+  { id: 103, title: "Lesen: Verben im Text einsetzen", format: "F4", category: "zt3", level: "ZT-3", duration: "6-8 Min" },
+  { id: 104, title: "Nebensätze: wenn / warum / dass / ob / weil", format: "F10", category: "zt3", level: "ZT-3", duration: "6-8 Min" },
+  { id: 105, title: "als / wann / wenn", format: "F6", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
+  { id: 106, title: "Relativpronomen einsetzen", format: "F3", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
+  { id: 107, title: "Adjektiv: Positiv / Komparativ / Superlativ", format: "F4", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
+  { id: 108, title: "Präposition richtig wählen", format: "F6", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
+  { id: 109, title: "Präteritum ↔ Infinitiv zuordnen", format: "F8", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
+  { id: 110, title: "Wortbildung (Nomen bilden)", format: "F8", category: "zt3", level: "ZT-3", duration: "5-7 Min" },
 ];
 
 export interface CategoryInfo {
@@ -209,17 +211,17 @@ export const categories: CategoryInfo[] = [
     id: "zt2", 
     name: "ZT-2", 
     subtitle: "Vorbereitung", 
-    quizRange: "93-98", 
+    quizRange: "93-101", 
     levelClass: "level-zt2",
-    quizIds: [93, 94, 95, 96, 97, 98]
+    quizIds: [93, 94, 95, 96, 97, 98, 99, 100, 101]
   },
   { 
     id: "zt3", 
     name: "ZT-3", 
     subtitle: "Vorbereitung", 
-    quizRange: "99-108", 
+    quizRange: "102-110", 
     levelClass: "level-zt3",
-    quizIds: Array.from({ length: 10 }, (_, i) => i + 99)
+    quizIds: [102, 103, 104, 105, 106, 107, 108, 109, 110]
   },
 ];
 
