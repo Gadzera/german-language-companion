@@ -1,6 +1,6 @@
 // Quiz 102 - ZT-3: Lesen - Sicherheit im Sommerurlaub (Richtig/Falsch)
 // Формат: F11 - Richtig oder Falsch
-// Задание: Lesen Sie den Text und entscheiden Sie: Richtig oder Falsch?
+// Задание: Lesen Sie den Text und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?
 
 export const readingText = `Sicherheit im Sommerurlaub
 
@@ -19,7 +19,7 @@ export default [
     id: "zt3-102-1",
     quiz_id: 102,
     question_text: "Man sollte vor der Abreise wichtige Dokumente kopieren.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -29,7 +29,7 @@ export default [
     id: "zt3-102-2",
     quiz_id: 102,
     question_text: "Die Kopien der Dokumente sollte man zusammen mit den Originalen aufbewahren.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -39,7 +39,7 @@ export default [
     id: "zt3-102-3",
     quiz_id: 102,
     question_text: "In touristischen Gegenden gibt es besonders viele Taschendiebe.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -49,7 +49,7 @@ export default [
     id: "zt3-102-4",
     quiz_id: 102,
     question_text: "Man sollte Wertsachen immer bei sich tragen.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -59,7 +59,7 @@ export default [
     id: "zt3-102-5",
     quiz_id: 102,
     question_text: "Sonnencreme mit hohem Lichtschutzfaktor schützt vor UV-Strahlen.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -69,7 +69,7 @@ export default [
     id: "zt3-102-6",
     quiz_id: 102,
     question_text: "Eine rote Flagge am Strand bedeutet, dass das Wasser sauber ist.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
@@ -78,11 +78,11 @@ export default [
   {
     id: "zt3-102-7",
     quiz_id: 102,
-    question_text: "Auf bewachten Stränden kann man ohne Vorsicht schwimmen.",
-    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Richtig oder Falsch?",
+    question_text: "Auch auf bewachten Stränden sollte man vorsichtig schwimmen.",
+    question_hint: "Lesen Sie den Text 'Sicherheit im Sommerurlaub' und entscheiden Sie: Ist die Aussage richtig (R) oder falsch (F)?",
     format: "F11",
     reading_text: readingText,
     options: ["Richtig", "Falsch"],
-    correct_answer: "Falsch",
+    correct_answer: "Richtig",
   },
 ];

@@ -310,6 +310,86 @@ export const QuizPage: React.FC = () => {
 
   const isCurrentCorrect = selectedAnswer ? isAnswerCorrect(selectedAnswer, question) : false;
 
+  // Специальная обработка для F11 - Lesen: Richtig oder Falsch
+  // Показываем текст и ВСЕ вопросы сразу
+  if (question.format === 'F11') {
+    // Получаем reading_text из первого вопроса (все вопросы F11 имеют одинаковый текст)
+    const readingText = (questions[0] as any).reading_text || '';
+    
+    // Преобразуем вопросы в формат для FormatF11
+    const f11Questions = questions.map(q => ({
+      id: q.id,
+      statement: q.question_text,
+      correct_answer: q.correct_answer === 'Richtig' ? 'R' as const : 'F' as const,
+    }));
+
+    const handleF11Complete = (score: number, total: number) => {
+      // Сохраняем прогресс
+      if (user && quizId) {
+        supabase
+          .from('user_progress')
+          .upsert({
+            user_id: user.id,
+            quiz_id: Number(quizId),
+            score: score,
+            total_questions: total,
+            completed: true,
+            last_attempt_at: new Date().toISOString(),
+          }, {
+            onConflict: 'user_id,quiz_id'
+          });
+      }
+    };
+
+    return (
+      <div className="min-h-screen bg-background">
+        <Header 
+          title={`${quiz.level} · Nr. ${quiz.id}`}
+          subtitle={quiz.title}
+          showBack 
+        />
+        
+        <main className="max-w-2xl mx-auto px-4 py-6">
+          {/* Инструкция к заданию */}
+          <div className="bg-muted/50 rounded-lg px-4 py-3 mb-6 text-center space-y-1">
+            <p className="text-sm font-medium text-foreground">
+              {getFormatInstructionDe('F11')}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {getFormatInstructionTranslation('F11', translationLanguage as TranslationLanguage)}
+            </p>
+          </div>
+
+          <FormatF11 
+            readingText={readingText}
+            questions={f11Questions}
+            onComplete={handleF11Complete}
+          />
+
+          {/* Кнопки навигации после завершения */}
+          <div className="mt-6 space-y-3">
+            <Button 
+              onClick={restartQuiz}
+              variant="outline"
+              className="w-full"
+            >
+              <span className="mr-2">↺</span>
+              Wiederholen
+            </Button>
+            <Button 
+              onClick={() => navigate('/')}
+              variant="outline"
+              className="w-full"
+            >
+              <span className="mr-2">→</span>
+              Zur Startseite
+            </Button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Header 
