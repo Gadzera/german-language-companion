@@ -288,26 +288,33 @@ export const QuizPage: React.FC = () => {
       </div>
 
       <main className="max-w-md mx-auto px-4 py-6">
-        {/* Question */}
-        <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
-          {question.question_hint && (
-            <p className="text-sm text-muted-foreground mb-2">{question.question_hint}</p>
-          )}
-          <p className="text-lg text-foreground leading-relaxed">
-            {question.question_text.split('_____').map((part, i, arr) => (
-              <React.Fragment key={i}>
-                {part}
-                {i < arr.length - 1 && (
-                  <span className="inline-block min-w-16 border-b-2 border-primary mx-1 text-center">
-                    {showQuestionResult && (
-                      <span className="text-success font-medium">{question.correct_answer}</span>
-                    )}
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
-          </p>
-        </div>
+        {/* Question - скрываем для F4, так как GapFill показывает полный текст */}
+        {question.format !== 'F4' && (
+          <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
+            {question.question_hint && (
+              <p className="text-sm text-muted-foreground mb-2">{question.question_hint}</p>
+            )}
+            <p className="text-lg text-foreground leading-relaxed">
+              {question.question_text.split('_____').map((part, i, arr) => (
+                <React.Fragment key={i}>
+                  {part}
+                  {i < arr.length - 1 && (
+                    <span className="inline-block min-w-16 border-b-2 border-primary mx-1 text-center">
+                      {showQuestionResult && (
+                        <span className="text-success font-medium">{question.correct_answer}</span>
+                      )}
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
+            </p>
+          </div>
+        )}
+        
+        {/* Hint для F4 формата */}
+        {question.format === 'F4' && question.question_hint && (
+          <p className="text-sm text-muted-foreground mb-4 text-center">{question.question_hint}</p>
+        )}
 
         {/* Result feedback */}
         {showQuestionResult && (
@@ -380,14 +387,12 @@ function renderQuizFormat(
 
   // F4 - Einsetzen aus Liste (мультипропуски)
   if (format === 'F4') {
-    // Передаём полный текст как есть
+    // Передаём слова — перемешивание происходит внутри GapFill
     const allWords = [...question.options, ...(question.extra_words || [])];
-    // Перемешиваем слова
-    const shuffledWords = allWords.sort(() => Math.random() - 0.5);
     
     return (
       <GapFill
-        words={shuffledWords}
+        words={allWords}
         fullText={question.question_text}
         onSubmit={(answers) => {
           const answer = Object.values(answers).join(' ');
