@@ -1,63 +1,51 @@
-// Quiz 94 - Упражнение 94
-// Формат: F4 (Einsetzen aus Liste - вставить слова из списка в пропуски)
-// Уровень: A2
-//
-// ======= ИНСТРУКЦИЯ ДЛЯ ДОБАВЛЕНИЯ ВОПРОСОВ =======
-// 1. question_text: текст с пропусками _____ (несколько)
-// 2. options: слова для вставки (по одному на каждый пропуск)
-// 3. extra_words: дополнительные слова-отвлекатели
-// 4. correct_answer: правильные ответы через пробел
-//
-// Важно: количество слов в options = количество пропусков
-// ==================================================
+// Quiz 94 - ZT-2: Lesen - Kinderuni Wien (Richtig/Falsch)
+// Формат: F11 - Richtig oder Falsch
+// Задание: Was ist richtig (R), was ist falsch (F)? Kreuzen Sie an!
 
-export interface QuizQuestion {
-  id: string;
-  quiz_id: number;
-  format: string;
-  question_text: string;
-  question_hint?: string;
-  options: string[];
-  correct_answer: string;
-  correct_answer_full?: string;
-  correct_answers?: string[];
-  word_de?: string;
-  article?: string;
-  word_translation?: Record<string, string>;
-  extra_words?: string[];
-}
-
-export const quiz94Questions: QuizQuestion[] = [
+export default [
   {
-    id: 'q94-1',
+    id: "zt2-94-1",
     quiz_id: 94,
-    format: 'F4',
-    question_text: 'Morgens _____ ich _____ und _____ mich.',
-    question_hint: 'Tagesablauf beschreiben',
-    options: ['stehe', 'auf', 'dusche'],
-    extra_words: ['lege', 'mich', 'frühstücke', 'an'],
-    correct_answer: 'stehe auf dusche',
+    question_text: "Jedes Jahr besuchen 14.000 Kinder die Kinderuni Wien.",
+    question_hint: "Lesen: Kinderuni Wien - Richtig oder Falsch?",
+    format: "F11",
+    options: ["Richtig", "Falsch"],
+    correct_answer: "Richtig",
   },
   {
-    id: 'q94-2',
+    id: "zt2-94-2",
     quiz_id: 94,
-    format: 'F4',
-    question_text: 'Ich _____ um 7 Uhr _____ und _____ Kaffee.',
-    question_hint: 'Morgenroutine',
-    options: ['wache', 'auf', 'trinke'],
-    extra_words: ['stehe', 'esse', 'schlafe', 'mich'],
-    correct_answer: 'wache auf trinke',
+    question_text: "Das Kinderbüro der Uni Wien organisiert das Sommerprogramm.",
+    question_hint: "Lesen: Kinderuni Wien - Richtig oder Falsch?",
+    format: "F11",
+    options: ["Richtig", "Falsch"],
+    correct_answer: "Richtig",
   },
   {
-    id: 'q94-3',
+    id: "zt2-94-3",
     quiz_id: 94,
-    format: 'F4',
-    question_text: 'Nach der Arbeit _____ ich _____ und _____ fern.',
-    question_hint: 'Abendaktivitäten',
-    options: ['komme', 'heim', 'sehe'],
-    extra_words: ['gehe', 'lese', 'höre', 'aus'],
-    correct_answer: 'komme heim sehe',
+    question_text: "Das Motto der Kinderuni Wien ist „Stellt auch dumme Fragen!"",
+    question_hint: "Lesen: Kinderuni Wien - Richtig oder Falsch?",
+    format: "F11",
+    options: ["Richtig", "Falsch"],
+    correct_answer: "Falsch",
+  },
+  {
+    id: "zt2-94-4",
+    quiz_id: 94,
+    question_text: "Die 24-jährige Nuria studiert zurzeit Biologie und Politikwissenschaft.",
+    question_hint: "Lesen: Kinderuni Wien - Richtig oder Falsch?",
+    format: "F11",
+    options: ["Richtig", "Falsch"],
+    correct_answer: "Falsch",
+  },
+  {
+    id: "zt2-94-5",
+    quiz_id: 94,
+    question_text: "Nuria hat die Kinderuni gefallen, weil sie dort selbstständig sein konnte.",
+    question_hint: "Lesen: Kinderuni Wien - Richtig oder Falsch?",
+    format: "F11",
+    options: ["Richtig", "Falsch"],
+    correct_answer: "Richtig",
   },
 ];
-
-export default quiz94Questions;
