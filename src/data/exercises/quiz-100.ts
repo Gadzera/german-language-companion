@@ -1,6 +1,78 @@
-// Quiz 100 - Шаблон упражнения
-// Формат: F10 - Satz aus Wörtern bauen
+// Quiz 100 - ZT-2: Wort passt nicht (Wortschatz)
+// Формат: F9 - Wort passt nicht
+// Задание: Welches Wort passt nicht in die Reihe?
 
 export default [
-  // Добавьте вопросы здесь
+  {
+    id: "zt2-100-1",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Apfel", "Birne", "Orange", "Kartoffel"],
+    correct_answer: "Kartoffel",
+  },
+  {
+    id: "zt2-100-2",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Tisch", "Stuhl", "Schrank", "Teller"],
+    correct_answer: "Teller",
+  },
+  {
+    id: "zt2-100-3",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["laufen", "gehen", "rennen", "essen"],
+    correct_answer: "essen",
+  },
+  {
+    id: "zt2-100-4",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Bruder", "Schwester", "Onkel", "Freund"],
+    correct_answer: "Freund",
+  },
+  {
+    id: "zt2-100-5",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Montag", "Dienstag", "Januar", "Mittwoch"],
+    correct_answer: "Januar",
+  },
+  {
+    id: "zt2-100-6",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["rot", "grün", "blau", "rund"],
+    correct_answer: "rund",
+  },
+  {
+    id: "zt2-100-7",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Auto", "Bus", "Zug", "Fahrrad"],
+    correct_answer: "Fahrrad",
+  },
+  {
+    id: "zt2-100-8",
+    quiz_id: 100,
+    question_text: "Welches Wort passt nicht?",
+    question_hint: "Ein Wort gehört nicht zur Gruppe.",
+    format: "F9",
+    options: ["Arzt", "Lehrer", "Krankheit", "Ingenieur"],
+    correct_answer: "Krankheit",
+  },
 ];
