@@ -16,6 +16,7 @@ import { GapFill } from '@/components/quiz/GapFill';
 import { CompositaBuilder } from '@/components/quiz/CompositaBuilder';
 import { QuizResult } from '@/components/quiz/QuizResult';
 import { FlashCard } from '@/components/quiz/FlashCard';
+import FormatF11 from '@/components/quiz/formats/FormatF11';
 import { toast } from 'sonner';
 
 interface QuizQuestion {
@@ -488,6 +489,8 @@ function renderQuizFormat(
       />
     );
   }
+
+  // F11 - Lesen: Richtig oder Falsch (handled separately in component)
 
   // Fallback - показываем опции
   return (
