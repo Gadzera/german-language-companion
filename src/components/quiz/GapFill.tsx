@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -18,30 +18,47 @@ export const GapFill: React.FC<GapFillProps> = ({
   const [usedWords, setUsedWords] = useState<Record<number, string>>({});
   const [availableWords, setAvailableWords] = useState<string[]>([]);
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const [selectedGap, setSelectedGap] = useState<number | null>(null);
+
+  // Стабильное перемешивание слов при первой загрузке
+  const shuffledWords = useMemo(() => {
+    return [...words].sort(() => Math.random() - 0.5);
+  }, [words.join(',')]);
 
   // Инициализация слов при загрузке
   useEffect(() => {
-    setAvailableWords([...words]);
+    setAvailableWords(shuffledWords);
     setUsedWords({});
     setSelectedWord(null);
-  }, [words, fullText]);
+    setSelectedGap(null);
+  }, [shuffledWords, fullText]);
 
   // Разбиваем текст на части по _____
   const textParts = fullText.split('_____');
   const gapCount = textParts.length - 1;
 
-  // Сначала выбираем слово, потом нажимаем на пробел
+  // Обработчик клика по слову
   const handleWordClick = (word: string) => {
     if (disabled) return;
     
+    // Если уже выбран пробел - вставляем слово туда
+    if (selectedGap !== null) {
+      setUsedWords(prev => ({ ...prev, [selectedGap]: word }));
+      setAvailableWords(prev => prev.filter(w => w !== word));
+      setSelectedGap(null);
+      setSelectedWord(null);
+      return;
+    }
+    
+    // Иначе просто выбираем/отменяем выбор слова
     if (selectedWord === word) {
-      // Повторный клик - отменяем выбор
       setSelectedWord(null);
     } else {
       setSelectedWord(word);
     }
   };
 
+  // Обработчик клика по пробелу
   const handleGapClick = (gapIndex: number) => {
     if (disabled) return;
     
@@ -52,14 +69,25 @@ export const GapFill: React.FC<GapFillProps> = ({
       const newUsed = { ...usedWords };
       delete newUsed[gapIndex];
       setUsedWords(newUsed);
+      setSelectedGap(null);
+      setSelectedWord(null);
       return;
     }
     
-    // Если выбрано слово - вставляем его в пробел
+    // Если выбрано слово - вставляем его в этот пробел
     if (selectedWord) {
       setUsedWords(prev => ({ ...prev, [gapIndex]: selectedWord }));
       setAvailableWords(prev => prev.filter(w => w !== selectedWord));
       setSelectedWord(null);
+      setSelectedGap(null);
+      return;
+    }
+    
+    // Иначе выбираем/отменяем пробел
+    if (selectedGap === gapIndex) {
+      setSelectedGap(null);
+    } else {
+      setSelectedGap(gapIndex);
     }
   };
 
@@ -72,14 +100,19 @@ export const GapFill: React.FC<GapFillProps> = ({
   return (
     <div className="space-y-4">
       {/* Инструкция */}
-      {!selectedWord && !allGapsFilled && (
+      {!selectedWord && !selectedGap && !allGapsFilled && (
         <p className="text-sm text-muted-foreground text-center">
-          ↓ Сначала выберите слово, потом нажмите на пробел
+          Выберите слово или нажмите на пробел
         </p>
       )}
-      {selectedWord && (
+      {selectedWord && !selectedGap && (
         <p className="text-sm text-primary font-medium text-center animate-fade-in">
-          ✓ Выбрано: <span className="font-bold">{selectedWord}</span> — теперь нажмите на пробел
+          ✓ Выбрано: <span className="font-bold">{selectedWord}</span> — нажмите на пробел
+        </p>
+      )}
+      {selectedGap !== null && !selectedWord && (
+        <p className="text-sm text-primary font-medium text-center animate-fade-in">
+          ✓ Пробел выбран — теперь выберите слово
         </p>
       )}
 
@@ -94,14 +127,16 @@ export const GapFill: React.FC<GapFillProps> = ({
                   onClick={() => handleGapClick(i)}
                   disabled={disabled}
                   className={cn(
-                    "inline-block min-w-20 mx-1 px-3 py-1 rounded-lg border-2 transition-all text-base",
+                    "inline-block min-w-16 mx-1 px-3 py-1 rounded-lg border-2 transition-all text-base",
                     usedWords[i]
                       ? "border-primary bg-primary/10 text-primary font-medium cursor-pointer hover:bg-destructive/10 hover:border-destructive hover:text-destructive"
-                      : selectedWord
-                        ? "border-primary bg-primary/20 animate-pulse cursor-pointer hover:bg-primary/30"
-                        : "border-dashed border-muted-foreground/50"
+                      : selectedGap === i
+                        ? "border-primary bg-primary/30 ring-2 ring-primary ring-offset-2"
+                        : selectedWord
+                          ? "border-primary bg-primary/20 animate-pulse cursor-pointer hover:bg-primary/30"
+                          : "border-dashed border-muted-foreground/50 hover:border-primary/50 cursor-pointer"
                   )}
-                  title={usedWords[i] ? "Нажмите чтобы убрать слово" : selectedWord ? "Нажмите чтобы вставить слово" : "Сначала выберите слово"}
+                  title={usedWords[i] ? "Нажмите чтобы убрать слово" : "Нажмите чтобы выбрать пробел"}
                 >
                   {usedWords[i] || '___'}
                 </button>
@@ -124,7 +159,9 @@ export const GapFill: React.FC<GapFillProps> = ({
                 "px-4 py-2 rounded-lg text-sm font-medium transition-all",
                 selectedWord === word
                   ? "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2"
-                  : "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer"
+                  : selectedGap !== null
+                    ? "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer animate-pulse"
+                    : "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer"
               )}
             >
               {word}
