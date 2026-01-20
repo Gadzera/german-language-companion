@@ -17,34 +17,43 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          country: string | null
           created_at: string
           email: string | null
           full_name: string | null
           id: string
+          last_seen_at: string | null
           subscription_expires_at: string | null
           subscription_type: string | null
+          total_points: number | null
           updated_at: string
           user_id: string
         }
         Insert: {
           avatar_url?: string | null
+          country?: string | null
           created_at?: string
           email?: string | null
           full_name?: string | null
           id?: string
+          last_seen_at?: string | null
           subscription_expires_at?: string | null
           subscription_type?: string | null
+          total_points?: number | null
           updated_at?: string
           user_id: string
         }
         Update: {
           avatar_url?: string | null
+          country?: string | null
           created_at?: string
           email?: string | null
           full_name?: string | null
           id?: string
+          last_seen_at?: string | null
           subscription_expires_at?: string | null
           subscription_type?: string | null
+          total_points?: number | null
           updated_at?: string
           user_id?: string
         }
@@ -133,10 +142,28 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      leaderboard: {
+        Row: {
+          avatar_url: string | null
+          country: string | null
+          created_at: string | null
+          full_name: string | null
+          id: string | null
+          total_points: number | null
+          user_id: string | null
+        }
+        Relationships: []
+      }
+      user_statistics: {
+        Row: {
+          online_users: number | null
+          total_users: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      update_last_seen: { Args: never; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
