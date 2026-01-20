@@ -1,44 +1,127 @@
-// Quiz 1 - Упражнение 1
-// Формат: F1 (Einsetzen - вставить один элемент)
+// Quiz 1 - Artikel lernen (der/die/das)
+// Формат: F0 - Flashcards / Wortschatz
 // Уровень: A1
-//
-// ======= ИНСТРУКЦИЯ ДЛЯ ДОБАВЛЕНИЯ ВОПРОСОВ =======
-// 1. Каждый вопрос - объект в массиве questions
-// 2. question_text: текст с пропуском _____ 
-// 3. options: варианты ответа (3-4 варианта)
-// 4. correct_answer: правильный ответ
-// 5. correct_answer_full: полное предложение с ответом (опционально)
-//
-// Пример добавления нового вопроса:
-// {
-//   id: 'q1-2',
-//   quiz_id: 1,
-//   format: 'F1',
-//   question_text: 'Ich _____ Deutsch.',
-//   options: ['lerne', 'lernt', 'lernen', 'lernst'],
-//   correct_answer: 'lerne',
-//   correct_answer_full: 'Ich lerne Deutsch.',
-// }
-// ==================================================
+// Тема: Основные существительные с артиклями
 
-export interface QuizQuestion {
-  id: string;
-  quiz_id: number;
-  format: string;
-  question_text: string;
-  question_hint?: string;
-  options: string[];
-  correct_answer: string;
-  correct_answer_full?: string;
-  correct_answers?: string[];
-  word_de?: string;
-  article?: string;
-  word_translation?: Record<string, string>;
-  extra_words?: string[];
-}
-
-export const quiz1Questions: QuizQuestion[] = [
-  // Добавьте вопросы ниже по образцу выше
+export default [
+  {
+    id: "q1-1",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Tisch",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+    word_de: "der Tisch",
+    word_translation: { ru: "стол", tr: "masa", fa: "میز", ar: "طاولة" },
+  },
+  {
+    id: "q1-2",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Lampe",
+    options: ["der", "die", "das"],
+    correct_answer: "die",
+    word_de: "die Lampe",
+    word_translation: { ru: "лампа", tr: "lamba", fa: "لامپ", ar: "مصباح" },
+  },
+  {
+    id: "q1-3",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Buch",
+    options: ["der", "die", "das"],
+    correct_answer: "das",
+    word_de: "das Buch",
+    word_translation: { ru: "книга", tr: "kitap", fa: "کتاب", ar: "كتاب" },
+  },
+  {
+    id: "q1-4",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Stuhl",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+    word_de: "der Stuhl",
+    word_translation: { ru: "стул", tr: "sandalye", fa: "صندلی", ar: "كرسي" },
+  },
+  {
+    id: "q1-5",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Tasche",
+    options: ["der", "die", "das"],
+    correct_answer: "die",
+    word_de: "die Tasche",
+    word_translation: { ru: "сумка", tr: "çanta", fa: "کیف", ar: "حقيبة" },
+  },
+  {
+    id: "q1-6",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Fenster",
+    options: ["der", "die", "das"],
+    correct_answer: "das",
+    word_de: "das Fenster",
+    word_translation: { ru: "окно", tr: "pencere", fa: "پنجره", ar: "نافذة" },
+  },
+  {
+    id: "q1-7",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Mann",
+    options: ["der", "die", "das"],
+    correct_answer: "der",
+    word_de: "der Mann",
+    word_translation: { ru: "мужчина", tr: "adam", fa: "مرد", ar: "رجل" },
+  },
+  {
+    id: "q1-8",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Frau",
+    options: ["der", "die", "das"],
+    correct_answer: "die",
+    word_de: "die Frau",
+    word_translation: { ru: "женщина", tr: "kadın", fa: "زن", ar: "امرأة" },
+  },
+  {
+    id: "q1-9",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Kind",
+    options: ["der", "die", "das"],
+    correct_answer: "das",
+    word_de: "das Kind",
+    word_translation: { ru: "ребёнок", tr: "çocuk", fa: "کودک", ar: "طفل" },
+  },
+  {
+    id: "q1-10",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Schule",
+    options: ["der", "die", "das"],
+    correct_answer: "die",
+    word_de: "die Schule",
+    word_translation: { ru: "школа", tr: "okul", fa: "مدرسه", ar: "مدرسة" },
+  },
+  {
+    id: "q1-11",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Auto",
+    options: ["der", "die", "das"],
+    correct_answer: "das",
+    word_de: "das Auto",
+    word_translation: { ru: "машина", tr: "araba", fa: "ماشین", ar: "سيارة" },
+  },
+  {
+    id: "q1-12",
+    quiz_id: 1,
+    format: "F0",
+    question_text: "_____ Haus",
+    options: ["der", "die", "das"],
+    correct_answer: "das",
+    word_de: "das Haus",
+    word_translation: { ru: "дом", tr: "ev", fa: "خانه", ar: "منزل" },
+  },
 ];
-
-export default quiz1Questions;
