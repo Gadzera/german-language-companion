@@ -162,7 +162,7 @@ export const categories: CategoryInfo[] = [
   { 
     id: "cards", 
     name: "Kartenlernen", 
-    subtitle: "Карточки (25 кадр)", 
+    subtitle: "Karten (25 bilder)", 
     quizRange: "1-6", 
     levelClass: "level-cards",
     quizIds: [1, 2, 3, 4, 5, 6]
