@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Check, X } from 'lucide-react';
 
 interface QuizResultProps {
@@ -8,14 +8,17 @@ interface QuizResultProps {
   explanation?: string;
 }
 
-export const QuizResult: React.FC<QuizResultProps> = ({
+export const QuizResult = forwardRef<HTMLDivElement, QuizResultProps>(({
   isCorrect,
   correctAnswer,
   userAnswer,
   explanation,
-}) => {
+}, ref) => {
   return (
-    <div className={`rounded-xl p-4 ${isCorrect ? 'bg-success/10 border border-success' : 'bg-destructive/10 border border-destructive'}`}>
+    <div 
+      ref={ref}
+      className={`rounded-xl p-4 ${isCorrect ? 'bg-success/10 border border-success' : 'bg-destructive/10 border border-destructive'}`}
+    >
       <div className="flex items-center gap-2 mb-2">
         {isCorrect ? (
           <>
@@ -50,4 +53,6 @@ export const QuizResult: React.FC<QuizResultProps> = ({
       )}
     </div>
   );
-};
+});
+
+QuizResult.displayName = 'QuizResult';

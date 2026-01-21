@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
@@ -9,11 +9,11 @@ interface WordBuilderProps {
   disabled?: boolean;
 }
 
-export const WordBuilder: React.FC<WordBuilderProps> = ({
+export const WordBuilder = forwardRef<HTMLDivElement, WordBuilderProps>(({
   availableWords,
   onSubmit,
   disabled,
-}) => {
+}, ref) => {
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [remainingWords, setRemainingWords] = useState<string[]>(availableWords);
 
@@ -48,7 +48,7 @@ export const WordBuilder: React.FC<WordBuilderProps> = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div ref={ref} className="space-y-4">
       {/* Sentence builder area */}
       <div className="min-h-20 p-4 bg-card rounded-xl border-2 border-dashed border-primary/30">
         {selectedWords.length === 0 ? (
@@ -125,4 +125,6 @@ export const WordBuilder: React.FC<WordBuilderProps> = ({
       </div>
     </div>
   );
-};
+});
+
+WordBuilder.displayName = 'WordBuilder';

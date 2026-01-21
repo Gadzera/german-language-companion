@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Home, GraduationCap, BookOpen, User } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -15,12 +15,12 @@ const navItems: NavItem[] = [
   { icon: User, label: 'Profil', path: '/profile' },
 ];
 
-export const BottomNav: React.FC = () => {
+export const BottomNav = forwardRef<HTMLElement, object>((_, ref) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border safe-bottom z-50">
+    <nav ref={ref} className="fixed bottom-0 left-0 right-0 bg-card border-t border-border safe-bottom z-50">
       <div className="max-w-md mx-auto flex justify-around items-center py-2">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
@@ -44,4 +44,6 @@ export const BottomNav: React.FC = () => {
       </div>
     </nav>
   );
-};
+});
+
+BottomNav.displayName = 'BottomNav';
