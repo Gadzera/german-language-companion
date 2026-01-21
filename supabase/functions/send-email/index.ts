@@ -20,10 +20,10 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const apiKey = Deno.env.get("SENDGRID_API_KEY");
+    const apiKey = Deno.env.get("RESEND_API_KEY");
     
     if (!apiKey) {
-      console.error("SENDGRID_API_KEY not configured");
+      console.error("RESEND_API_KEY not configured");
       return new Response(
         JSON.stringify({ error: "Email service not configured" }),
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
