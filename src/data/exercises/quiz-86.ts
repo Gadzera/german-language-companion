@@ -3,16 +3,18 @@
 // Задание: Bilden Sie Fragen mit Fragepronomen!
 
 // Beispiel показывается в UI отдельно
+// Подчёркнутый текст в question_text обозначается через <u>...</u>
 export const quizExample = {
-  context: "Julia kommt aus Linz. Und du?",
+  context: "Julia kommt <u>aus Linz</u>. Und du?",
   solution: "Woher kommst du?",
+  highlight: "aus Linz" // Подчёркнутая часть - на что обращать внимание
 };
 
 export default [
   {
     id: "zt1-86-1",
     quiz_id: 86,
-    question_text: "Maria studiert seit einem Jahr in Wien. Und du?",
+    question_text: "Maria studiert <u>seit einem Jahr</u> in Wien. Und du?",
     question_hint: "",
     format: "F10",
     options: ["Seit", "wann", "studierst", "du", "in", "Wien", "?"],
@@ -23,7 +25,7 @@ export default [
   {
     id: "zt1-86-2",
     quiz_id: 86,
-    question_text: "Josef arbeitet als Mechaniker. Und du?",
+    question_text: "Josef arbeitet <u>als Mechaniker</u>. Und du?",
     question_hint: "",
     format: "F10",
     options: ["Als", "was", "arbeitest", "du", "?"],
@@ -34,7 +36,7 @@ export default [
   {
     id: "zt1-86-3",
     quiz_id: 86,
-    question_text: "Marios Telefonnummer ist 01 567 39 91. Und deine?",
+    question_text: "Marios Telefonnummer ist <u>01 567 39 91</u>. Und deine?",
     question_hint: "",
     format: "F10",
     options: ["Wie", "ist", "deine", "Telefonnummer", "?"],
@@ -44,7 +46,7 @@ export default [
   {
     id: "zt1-86-4",
     quiz_id: 86,
-    question_text: "Sandra mag gern Wiener Schnitzel. Und du?",
+    question_text: "Sandra mag gern <u>Wiener Schnitzel</u>. Und du?",
     question_hint: "",
     format: "F10",
     options: ["Was", "magst", "du", "gern", "?"],
@@ -54,7 +56,7 @@ export default [
   {
     id: "zt1-86-5",
     quiz_id: 86,
-    question_text: "Anna geht es heute nicht so gut. Und dir?",
+    question_text: "Anna geht es heute <u>nicht so gut</u>. Und dir?",
     question_hint: "",
     format: "F10",
     options: ["Wie", "geht", "es", "dir", "?"],

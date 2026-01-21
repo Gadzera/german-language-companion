@@ -457,9 +457,9 @@ export const QuizPage: React.FC = () => {
         {question.format === 'F10' && currentQuestion === 0 && (
           <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
             <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
-            <p className="text-sm text-muted-foreground mb-1">Julia kommt <span className="underline">aus Linz</span>. Und du?</p>
+            <p className="text-sm text-muted-foreground mb-1">Julia kommt <span className="underline decoration-2">aus Linz</span>. Und du?</p>
             <p className="text-sm text-foreground">
-              <span className="font-medium">Lösung:</span> <span className="italic underline">Woher kommst du?</span>
+              <span className="font-medium">Lösung:</span> <span className="italic">Woher kommst du?</span>
             </p>
           </div>
         )}
@@ -470,29 +470,26 @@ export const QuizPage: React.FC = () => {
             {question.question_hint && (
               <p className="text-sm text-muted-foreground mb-2">{question.question_hint}</p>
             )}
-            <p className="text-lg text-foreground leading-relaxed">
-              {question.question_text.split('_____').map((part, i, arr) => (
-                <React.Fragment key={i}>
-                  {part}
-                  {i < arr.length - 1 && (
-                    <span className="inline-block min-w-16 border-b-2 border-primary mx-1 text-center">
-                      {showQuestionResult && (
-                        <span className="text-success font-medium">{question.correct_answer}</span>
-                      )}
-                    </span>
-                  )}
-                </React.Fragment>
-              ))}
-            </p>
+            <p className="text-lg text-foreground leading-relaxed" 
+               dangerouslySetInnerHTML={{
+                 __html: question.question_text.replace(/<u>/g, '<span class="underline decoration-2">').replace(/<\/u>/g, '</span>').split('_____').map((part, i, arr) => 
+                   i < arr.length - 1 
+                     ? part + `<span class="inline-block min-w-16 border-b-2 border-primary mx-1 text-center">${showQuestionResult ? `<span class="text-success font-medium">${question.correct_answer}</span>` : ''}</span>`
+                     : part
+                 ).join('')
+               }}
+            />
           </div>
         )}
         
-        {/* Контекст предложения для F10 - это question_text */}
+        {/* Контекст предложения для F10 - это question_text с поддержкой подчёркивания */}
         {question.format === 'F10' && (
           <div className="bg-card rounded-xl p-4 border border-border mb-4 animate-fade-in">
-            <p className="text-base text-foreground leading-relaxed">
-              • {question.question_text}
-            </p>
+            <p className="text-base text-foreground leading-relaxed"
+               dangerouslySetInnerHTML={{
+                 __html: '• ' + question.question_text.replace(/<u>/g, '<span class="underline decoration-2 decoration-primary">').replace(/<\/u>/g, '</span>')
+               }}
+            />
           </div>
         )}
         
