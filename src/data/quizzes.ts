@@ -117,24 +117,24 @@ export const quizzes: Quiz[] = [
   { id: 84, title: "Verben + passende Ergänzung", format: "F6", category: "wortschatz", level: "B1", duration: "5-7 Min" },
 
   // F) ZT-1 Vorbereitung (Grammatik 22P + Wortschatz 8P + Lesen)
-  { id: 85, title: "Lesen: Neue Öffnungszeiten (Richtig/Falsch)", format: "F11", category: "zt1", level: "ZT-1", duration: "8-10 Min" },
+  { id: 85, title: "Lesen: Texte zuordnen (Richtig/Falsch)", format: "F11", category: "zt1", level: "ZT-1", duration: "8-10 Min" },
   { id: 86, title: "Fragen mit Fragepronomen bilden", format: "F10", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
-  { id: 87, title: "Negation (nicht / kein)", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 88, title: "Konnektoren (und / aber / oder / denn)", format: "F3", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
-  { id: 89, title: "Modalverben einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "5-7 Min" },
+  { id: 87, title: "Negative Antworten schreiben", format: "F10", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 88, title: "Konnektoren: und, aber, oder, denn, sondern", format: "F3", category: "zt1", level: "ZT-1", duration: "3-5 Min" },
+  { id: 89, title: "Modalverben einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
   { id: 90, title: "Possessivartikel einsetzen", format: "F3", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 91, title: "Wortreihen (Nomen + Artikel)", format: "F2", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
-  { id: 92, title: "Gegenteile (Antonyme)", format: "F2", category: "zt1", level: "ZT-1", duration: "4-6 Min" },
+  { id: 91, title: "Wortreihen ergänzen (Nomen + Artikel)", format: "F2", category: "zt1", level: "ZT-1", duration: "3-5 Min" },
+  { id: 92, title: "Gegenteile zu Adjektiven", format: "F2", category: "zt1", level: "ZT-1", duration: "2-4 Min" },
 
   // G) ZT-2 Vorbereitung (Hören 10P + Grammatik 20P + Wortschatz 10P)
   { id: 93, title: "Lesen: Kinderuni Wien (Richtig/Falsch)", format: "F11", category: "zt2", level: "ZT-2", duration: "8-10 Min" },
-  { id: 94, title: "Präposition + Artikel einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
+  { id: 94, title: "Präpositionen und Artikel einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
   { id: 95, title: "Reflexive Verben einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
-  { id: 96, title: "Dativ / Akkusativ einsetzen", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
-  { id: 97, title: "Imperativ bilden", format: "F5", category: "zt2", level: "ZT-2", duration: "4-5 Min" },
-  { id: 98, title: "Konnektoren dass / weil / wenn", format: "F6", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
-  { id: 99, title: "Personalpronomen im Text", format: "F4", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
-  { id: 100, title: "Wort passt nicht (Wortschatz)", format: "F9", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
+  { id: 96, title: "Artikel im Dativ/Akkusativ", format: "F3", category: "zt2", level: "ZT-2", duration: "3-5 Min" },
+  { id: 97, title: "Imperativ bilden", format: "F10", category: "zt2", level: "ZT-2", duration: "4-5 Min" },
+  { id: 98, title: "Konnektoren: dass, weil, wenn", format: "F3", category: "zt2", level: "ZT-2", duration: "3-5 Min" },
+  { id: 99, title: "Personalpronomen einsetzen", format: "F3", category: "zt2", level: "ZT-2", duration: "4-6 Min" },
+  { id: 100, title: "Wort passt nicht", format: "F9", category: "zt2", level: "ZT-2", duration: "3-5 Min" },
   { id: 101, title: "Komposita bauen", format: "F7", category: "zt2", level: "ZT-2", duration: "5-7 Min" },
 
   // H) ZT-3 Vorbereitung (Lesen 12P + Grammatik 18P + Wortschatz 10P)

@@ -4,7 +4,7 @@
 
 // Beispiel: Ich habe einen Sohn. Mein Sohn ist 5 Jahre alt.
 export const quizExample = {
-  context: "Ich habe einen Sohn.",
+  question: "Ich habe einen Sohn. _____ Sohn ist 5 Jahre alt.",
   answer: "<u>Mein</u> Sohn ist 5 Jahre alt."
 };
 
@@ -12,7 +12,7 @@ export default [
   {
     id: "zt1-90-1",
     quiz_id: 90,
-    question_text: "Wo ist denn deine Schwester? – _____ Schwester fährt heute Schi.",
+    question_text: "● Wo ist denn <u>deine</u> Schwester?\n♦ _____ Schwester fährt heute Schi.",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["Meine", "Deine", "Seine", "Ihre"],
@@ -21,7 +21,7 @@ export default [
   {
     id: "zt1-90-2",
     quiz_id: 90,
-    question_text: "Und _____ Bruder?",
+    question_text: "● Und _____ Bruder?",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["dein", "mein", "sein", "ihr"],
@@ -30,7 +30,7 @@ export default [
   {
     id: "zt1-90-3",
     quiz_id: 90,
-    question_text: "_____ Bruder ist heute in Graz in einem Museum.",
+    question_text: "♦ _____ Bruder ist heute in Graz in einem Museum.",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["Mein", "Dein", "Sein", "Ihr"],
@@ -39,7 +39,7 @@ export default [
   {
     id: "zt1-90-4",
     quiz_id: 90,
-    question_text: "Er lebt aber bei _____ Vater in Eisenstadt.",
+    question_text: "♦ Er lebt aber bei _____ Vater in Eisenstadt.",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["seinem", "meinem", "deinem", "ihrem"],
@@ -48,7 +48,7 @@ export default [
   {
     id: "zt1-90-5",
     quiz_id: 90,
-    question_text: "_____ Eltern sind geschieden.",
+    question_text: "♦ _____ Eltern sind geschieden.",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["Unsere", "Meine", "Deine", "Ihre"],
@@ -57,7 +57,7 @@ export default [
   {
     id: "zt1-90-6",
     quiz_id: 90,
-    question_text: "Welchen Beruf hat _____ Mutter eigentlich?",
+    question_text: "● Welchen Beruf hat _____ Mutter eigentlich?\n♦ Sie ist Notärztin.",
     question_hint: "Setzen Sie den passenden Possessivartikel ein!",
     format: "F3",
     options: ["deine", "meine", "seine", "ihre"],
