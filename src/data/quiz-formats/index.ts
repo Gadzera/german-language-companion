@@ -137,12 +137,12 @@ export const quizFormats: Record<string, FormatInfo> = {
     id: 'F10',
     name: 'Satz aus Wörtern bauen',
     description: 'Bauen Sie einen Satz aus den gegebenen Wörtern',
-    instruction: 'Bilden Sie Fragen mit Fragepronomen!',
+    instruction: 'Bilden Sie einen Satz aus den Wörtern!',
     translations: {
-      ru: 'Составьте вопросы с вопросительными местоимениями!',
-      tr: 'Soru zamirleri ile sorular oluşturun!',
-      fa: 'با ضمایر پرسشی سوال بسازید!',
-      ar: 'كوّن أسئلة باستخدام ضمائر الاستفهام!',
+      ru: 'Составьте предложение из слов!',
+      tr: 'Kelimelerden bir cümle oluşturun!',
+      fa: 'از کلمات یک جمله بسازید!',
+      ar: 'كوّن جملة من الكلمات!',
     },
   },
   F11: {

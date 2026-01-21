@@ -1,13 +1,19 @@
 // Quiz 87 - ZT-1: Negation (nicht/kein)
 // Формат: F3 - Выбор правильного варианта
-// Задание: Wählen Sie die richtige Negation: nicht oder kein(e)!
+// Задание: Schreiben Sie eine negative Antwort!
+
+// Beispiel: Spielst du gern Fußball? Nein, ich spiele nicht gern Fußball.
+export const quizExample = {
+  question: "Spielst du gern Fußball?",
+  answer: "Nein, ich spiele nicht gern Fußball."
+};
 
 export default [
   {
     id: "zt1-87-1",
     quiz_id: 87,
-    question_text: "Ich habe _____ Auto.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    question_text: "Hast du ein Haustier? Nein, ich habe _____ Haustier.",
+    question_hint: "Wählen Sie: nicht oder kein(e)?",
     format: "F3",
     options: ["kein", "nicht", "keine", "keinen"],
     correct_answer: "kein",
@@ -15,62 +21,26 @@ export default [
   {
     id: "zt1-87-2",
     quiz_id: 87,
-    question_text: "Er arbeitet heute _____.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    question_text: "Möchtest du noch ein Eis? Nein, ich möchte _____ Eis mehr.",
+    question_hint: "Wählen Sie: nicht oder kein(e)?",
     format: "F3",
-    options: ["nicht", "kein", "keine", "keinen"],
-    correct_answer: "nicht",
+    options: ["kein", "nicht", "keine", "keinen"],
+    correct_answer: "kein",
   },
   {
     id: "zt1-87-3",
     quiz_id: 87,
-    question_text: "Das ist _____ gute Idee.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    question_text: "Spielst du ein Instrument? Nein, ich spiele _____ Instrument.",
+    question_hint: "Wählen Sie: nicht oder kein(e)?",
     format: "F3",
-    options: ["keine", "nicht", "kein", "keinen"],
-    correct_answer: "keine",
+    options: ["kein", "nicht", "keine", "keinen"],
+    correct_answer: "kein",
   },
   {
     id: "zt1-87-4",
     quiz_id: 87,
-    question_text: "Ich verstehe das _____.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
-    format: "F3",
-    options: ["nicht", "kein", "keine", "keinen"],
-    correct_answer: "nicht",
-  },
-  {
-    id: "zt1-87-5",
-    quiz_id: 87,
-    question_text: "Er hat _____ Geschwister.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
-    format: "F3",
-    options: ["keine", "nicht", "kein", "keinen"],
-    correct_answer: "keine",
-  },
-  {
-    id: "zt1-87-6",
-    quiz_id: 87,
-    question_text: "Sie kommt heute _____ zur Arbeit.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
-    format: "F3",
-    options: ["nicht", "kein", "keine", "keinen"],
-    correct_answer: "nicht",
-  },
-  {
-    id: "zt1-87-7",
-    quiz_id: 87,
-    question_text: "Wir haben _____ Zeit.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
-    format: "F3",
-    options: ["keine", "nicht", "kein", "keinen"],
-    correct_answer: "keine",
-  },
-  {
-    id: "zt1-87-8",
-    quiz_id: 87,
-    question_text: "Das Buch gefällt mir _____.",
-    question_hint: "Wählen Sie die richtige Negation: nicht oder kein(e)!",
+    question_text: "Hörst du gern Rockmusik? Nein, ich höre _____ gern Rockmusik.",
+    question_hint: "Wählen Sie: nicht oder kein(e)?",
     format: "F3",
     options: ["nicht", "kein", "keine", "keinen"],
     correct_answer: "nicht",
