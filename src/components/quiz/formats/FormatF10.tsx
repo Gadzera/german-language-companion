@@ -8,6 +8,7 @@ import { WordBuilder } from '../WordBuilder';
 interface FormatF10Props {
   question: {
     question_text: string;
+    question_context?: string; // Дополнительный контекст (например, "Die Ärztin sagt: ...")
     options: string[];
     extra_words?: string[];
     correct_answer: string;
@@ -29,14 +30,23 @@ export const FormatF10: React.FC<FormatF10Props> = ({
   }, [question.options, question.extra_words]);
 
   return (
-    <WordBuilder
-      availableWords={shuffledWords}
-      onSubmit={(sentence) => {
-        const normalizedAnswer = sentence.replace(/\s+/g, ' ').trim();
-        onAnswer(normalizedAnswer);
-      }}
-      disabled={showResult}
-    />
+    <div className="space-y-4">
+      {/* Показываем контекст если есть (например, "Die Ärztin sagt: _____!") */}
+      {question.question_context && (
+        <div className="text-base text-muted-foreground pl-4">
+          {question.question_context}
+        </div>
+      )}
+      
+      <WordBuilder
+        availableWords={shuffledWords}
+        onSubmit={(sentence) => {
+          const normalizedAnswer = sentence.replace(/\s+/g, ' ').trim();
+          onAnswer(normalizedAnswer);
+        }}
+        disabled={showResult}
+      />
+    </div>
   );
 };
 
