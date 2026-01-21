@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User, Session } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
+import { supabase, isSupabaseAvailable } from '@/integrations/supabase/client';
 
 interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
+  isConfigured: boolean;
   signUp: (email: string, password: string, fullName?: string) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -18,8 +19,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const isConfigured = isSupabaseAvailable();
 
   useEffect(() => {
+    if (!isConfigured) {
+      setLoading(false);
+      return;
+    }
+
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
@@ -37,9 +44,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [isConfigured]);
 
   const signUp = async (email: string, password: string, fullName?: string) => {
+    if (!isConfigured) {
+      return { error: new Error('Authentication is not configured') };
+    }
+
     const redirectUrl = `${window.location.origin}/`;
     
     const { error } = await supabase.auth.signUp({
@@ -56,6 +67,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const signIn = async (email: string, password: string) => {
+    if (!isConfigured) {
+      return { error: new Error('Authentication is not configured') };
+    }
+
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -64,10 +79,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const signOut = async () => {
+    if (!isConfigured) return;
     await supabase.auth.signOut();
   };
 
   const resetPassword = async (email: string) => {
+    if (!isConfigured) {
+      return { error: new Error('Authentication is not configured') };
+    }
+
     const redirectUrl = `${window.location.origin}/auth?mode=reset`;
     
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -77,7 +97,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signUp, signIn, signOut, resetPassword }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      session, 
+      loading, 
+      isConfigured,
+      signUp, 
+      signIn, 
+      signOut, 
+      resetPassword 
+    }}>
       {children}
     </AuthContext.Provider>
   );
