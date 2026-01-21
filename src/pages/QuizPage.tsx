@@ -561,6 +561,19 @@ function renderExampleBox(quizId: number, format: string): React.ReactNode {
     );
   }
 
+  // ZT-2: Quiz 97 - Imperativ bilden
+  if (quizId === 97 && format === 'F10') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">Paul soll die Hausübung machen.</p>
+        <p className="text-sm text-foreground">
+          Sein Vater sagt: „<span className="italic underline decoration-2">Mach die Hausübung!</span>"
+        </p>
+      </div>
+    );
+  }
+
   // ZT-2: Quiz 98 - Imperativ
   if (quizId === 98 && format === 'F10') {
     return (

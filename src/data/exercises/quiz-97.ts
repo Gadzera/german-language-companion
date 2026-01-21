@@ -2,10 +2,11 @@
 // Формат: F10 - Построение формы
 // Задание: Schreiben Sie die Sätze im Imperativ!
 
-// Beispiel: Paul soll die Hausübung machen. → Sein Vater sagt: "Mach die Hausübung!"
+// Beispiel: Paul soll die Hausübung machen. Sein Vater sagt: „Mach die Hausübung!"
 export const quizExample = {
   question: "Paul soll die Hausübung machen.",
-  answer: 'Sein Vater sagt: „<u>Mach die Hausübung</u>!"'
+  speaker: "Sein Vater sagt:",
+  answer: "Mach die Hausübung!"
 };
 
 export default [
