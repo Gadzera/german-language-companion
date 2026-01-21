@@ -1,8 +1,8 @@
 // Quiz 100 - ZT-2: Wort passt nicht (Wortschatz)
 // Формат: F9 - Wort passt nicht
-// Задание: Welches Wort passt nicht in die Reihe?
+// Задание: Welches Wort passt nicht in die Reihe? Streichen Sie es durch!
 
-// Beispiel: die Ärztin – das Taxi – die Operation – das Krankenhaus → das Taxi
+// Beispiel: die Ärztin – das Taxi – die Operation – das Krankenhaus → das Taxi (passt nicht)
 export const quizExample = {
   words: ["die Ärztin", "das Taxi", "die Operation", "das Krankenhaus"],
   wrongWord: "das Taxi"
