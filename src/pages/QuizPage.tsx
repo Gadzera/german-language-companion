@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, forwardRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getQuizById } from '@/data/quizzes';
 import { getLocalQuestions } from '@/data/quizzes/index';
@@ -70,7 +70,7 @@ const shuffleArray = <T,>(array: T[], seed?: number): T[] => {
   return result;
 };
 
-export const QuizPage: React.FC = () => {
+export const QuizPage = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const { quizId } = useParams<{ quizId: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -516,7 +516,9 @@ export const QuizPage: React.FC = () => {
       </main>
     </div>
   );
-};
+});
+
+QuizPage.displayName = 'QuizPage';
 
 // Функция для отображения примера (Beispiel) для разных квизов
 function renderExampleBox(quizId: number, format: string): React.ReactNode {
