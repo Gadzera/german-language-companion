@@ -1,60 +1,54 @@
-// Quiz 97 - ZT-2: Artikel im Dativ/Akkusativ
-// Формат: F3 - Выбор из списка
-// Задание: Setzen Sie die fehlenden Artikel ein!
+// Quiz 97 - ZT-2: Imperativ bilden
+// Формат: F10 - Построение формы
+// Задание: Schreiben Sie die Sätze im Imperativ!
+
+// Beispiel: Paul soll die Hausübung machen. → Sein Vater sagt: "Mach die Hausübung!"
+export const quizExample = {
+  question: "Paul soll die Hausübung machen.",
+  answer: 'Sein Vater sagt: "<u>Mach</u> die Hausübung!"'
+};
 
 export default [
   {
     id: "zt2-97-1",
     quiz_id: 97,
-    question_text: "Karin schenkt _____ Tante einen Blumenstrauß.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Dativ)",
-    format: "F3",
-    options: ["der", "die", "dem", "den"],
-    correct_answer: "der",
+    question_text: 'Herr Gruber soll nicht so viel rauchen.\nDie Ärztin sagt: "_____!"',
+    question_hint: "Schreiben Sie im Imperativ (Sie-Form)!",
+    format: "F10",
+    options: ["Rauchen", "Sie", "nicht", "so", "viel"],
+    extra_words: ["raucht", "rauche", "mehr", "weniger", "bitte", "doch", "mal"],
+    correct_answer: "Rauchen Sie nicht so viel",
+    correct_answers: [
+      "Rauchen Sie nicht so viel",
+      "Rauchen Sie bitte nicht so viel"
+    ]
   },
   {
     id: "zt2-97-2",
     quiz_id: 97,
-    question_text: "Sie schenkt der Tante _____ Blumenstrauß.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Akkusativ)",
-    format: "F3",
-    options: ["einen", "ein", "einem", "einer"],
-    correct_answer: "einen",
+    question_text: 'Paul soll den Fernseher ausschalten.\nSein Bruder sagt: "_____!"',
+    question_hint: "Schreiben Sie im Imperativ (du-Form)!",
+    format: "F10",
+    options: ["Schalt", "den", "Fernseher", "aus"],
+    extra_words: ["schalte", "schalten", "ein", "TV", "Gerät", "bitte", "mal", "ab"],
+    correct_answer: "Schalt den Fernseher aus",
+    correct_answers: [
+      "Schalt den Fernseher aus",
+      "Schalte den Fernseher aus"
+    ]
   },
   {
     id: "zt2-97-3",
     quiz_id: 97,
-    question_text: "Ich zeige _____ Lehrer das Buch.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Dativ)",
-    format: "F3",
-    options: ["dem", "den", "der", "das"],
-    correct_answer: "dem",
-  },
-  {
-    id: "zt2-97-4",
-    quiz_id: 97,
-    question_text: "Ich zeige dem Lehrer _____ Buch.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Akkusativ)",
-    format: "F3",
-    options: ["das", "dem", "den", "der"],
-    correct_answer: "das",
-  },
-  {
-    id: "zt2-97-5",
-    quiz_id: 97,
-    question_text: "Die Lehrerin erklärt _____ Schülern die Übung.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Dativ Plural)",
-    format: "F3",
-    options: ["den", "die", "dem", "der"],
-    correct_answer: "den",
-  },
-  {
-    id: "zt2-97-6",
-    quiz_id: 97,
-    question_text: "Die Lehrerin erklärt den Schülern _____ Übung.",
-    question_hint: "Setzen Sie den fehlenden Artikel ein! (Akkusativ)",
-    format: "F3",
-    options: ["die", "der", "dem", "das"],
-    correct_answer: "die",
+    question_text: 'Paul und Pia sollen einkaufen gehen.\nIhr Vater sagt: "_____!"',
+    question_hint: "Schreiben Sie im Imperativ (ihr-Form)!",
+    format: "F10",
+    options: ["Geht", "einkaufen"],
+    extra_words: ["gehen", "kauft", "kaufen", "ein", "bitte", "mal", "jetzt", "schnell"],
+    correct_answer: "Geht einkaufen",
+    correct_answers: [
+      "Geht einkaufen",
+      "Geht bitte einkaufen"
+    ]
   },
 ];
