@@ -2,6 +2,9 @@
 // Формат: F3 - Выбор правильного варианта
 // Задание: Setzen Sie folgende Wörter ein: und, aber, oder, denn, sondern!
 
+// Beispiel für F3 mit Konnektoren (keine spezifisches Beispiel im PDF)
+export const quizExample = null;
+
 export default [
   {
     id: "zt1-88-1",

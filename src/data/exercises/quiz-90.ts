@@ -5,7 +5,7 @@
 // Beispiel: Ich habe einen Sohn. Mein Sohn ist 5 Jahre alt.
 export const quizExample = {
   context: "Ich habe einen Sohn.",
-  answer: "Mein Sohn ist 5 Jahre alt."
+  answer: "<u>Mein</u> Sohn ist 5 Jahre alt."
 };
 
 export default [

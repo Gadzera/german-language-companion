@@ -453,16 +453,8 @@ export const QuizPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Beispiel для F10 формата (Quiz 86) - показываем только на первом вопросе */}
-        {question.format === 'F10' && currentQuestion === 0 && (
-          <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
-            <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
-            <p className="text-sm text-muted-foreground mb-1">Julia kommt <span className="underline decoration-2">aus Linz</span>. Und du?</p>
-            <p className="text-sm text-foreground">
-              <span className="font-medium">Lösung:</span> <span className="italic">Woher kommst du?</span>
-            </p>
-          </div>
-        )}
+        {/* Beispiel - показываем на первом вопросе для форматов, которые имеют примеры */}
+        {currentQuestion === 0 && renderExampleBox(Number(quizId), question.format)}
 
         {/* Question - скрываем для F4 и F10, так как они показывают свой UI */}
         {!['F4', 'F10'].includes(question.format) && (
@@ -525,6 +517,76 @@ export const QuizPage: React.FC = () => {
     </div>
   );
 };
+
+// Функция для отображения примера (Beispiel) для разных квизов
+function renderExampleBox(quizId: number, format: string): React.ReactNode {
+  // ZT-1: Quiz 86 - Fragen mit Fragepronomen
+  if (quizId === 86 && format === 'F10') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">Julia kommt <span className="underline decoration-2">aus Linz</span>. Und du?</p>
+        <p className="text-sm text-foreground">
+          <span className="font-medium">Lösung:</span> <span className="italic">Woher kommst du?</span>
+        </p>
+      </div>
+    );
+  }
+
+  // ZT-1: Quiz 87 - Negation (nicht/kein)
+  if (quizId === 87 && format === 'F10') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">Spielst du gern Fußball?</p>
+        <p className="text-sm text-foreground">
+          <span className="font-medium">Nein,</span> <span className="italic underline decoration-2">ich spiele nicht gern Fußball.</span>
+        </p>
+      </div>
+    );
+  }
+
+  // ZT-1: Quiz 90 - Possessivartikel
+  if (quizId === 90 && format === 'F3') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">Ich habe einen Sohn.</p>
+        <p className="text-sm text-foreground">
+          <span className="underline decoration-2 font-medium">Mein</span> Sohn ist 5 Jahre alt.
+        </p>
+      </div>
+    );
+  }
+
+  // ZT-2: Quiz 98 - Imperativ
+  if (quizId === 98 && format === 'F10') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">Paul soll die Hausübung machen.</p>
+        <p className="text-sm text-foreground">
+          Sein Vater sagt: <span className="italic underline decoration-2">"Mach die Hausübung!"</span>
+        </p>
+      </div>
+    );
+  }
+
+  // ZT-2: Quiz 100 - Wort passt nicht
+  if (quizId === 100 && format === 'F9') {
+    return (
+      <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+        <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+        <p className="text-sm text-muted-foreground mb-1">die Ärztin – <span className="line-through">das Taxi</span> – die Operation – das Krankenhaus</p>
+        <p className="text-sm text-foreground">
+          <span className="font-medium">→</span> <span className="italic">"das Taxi" passt nicht!</span>
+        </p>
+      </div>
+    );
+  }
+
+  return null;
+}
 
 function renderQuizFormat(
   question: QuizQuestion,
