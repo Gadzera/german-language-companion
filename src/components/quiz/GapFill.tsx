@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, forwardRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -11,14 +11,14 @@ interface GapFillProps {
   showResult?: boolean; // Показывать результат
 }
 
-export const GapFill: React.FC<GapFillProps> = ({
+export const GapFill = forwardRef<HTMLDivElement, GapFillProps>(({
   words,
   fullText,
   correctAnswers,
   onSubmit,
   disabled,
   showResult,
-}) => {
+}, ref) => {
   const [usedWords, setUsedWords] = useState<Record<number, string>>({});
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
@@ -111,7 +111,7 @@ export const GapFill: React.FC<GapFillProps> = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div ref={ref} className="space-y-4">
       {/* Полный текст с пробелами */}
       <div className="bg-card rounded-xl p-4 border border-border">
         <div className="text-lg leading-loose">
@@ -192,4 +192,6 @@ export const GapFill: React.FC<GapFillProps> = ({
       )}
     </div>
   );
-};
+});
+
+GapFill.displayName = 'GapFill';
