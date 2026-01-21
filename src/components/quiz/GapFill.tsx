@@ -99,20 +99,15 @@ export const GapFill: React.FC<GapFillProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Инструкция */}
-      {!selectedWord && !selectedGap && !allGapsFilled && (
-        <p className="text-sm text-muted-foreground text-center">
-          Выберите слово или нажмите на пробел
-        </p>
-      )}
+      {/* Инструкция - минимальные подсказки */}
       {selectedWord && !selectedGap && (
         <p className="text-sm text-primary font-medium text-center animate-fade-in">
-          ✓ Выбрано: <span className="font-bold">{selectedWord}</span> — нажмите на пробел
+          → {selectedWord}
         </p>
       )}
       {selectedGap !== null && !selectedWord && (
         <p className="text-sm text-primary font-medium text-center animate-fade-in">
-          ✓ Пробел выбран — теперь выберите слово
+          ← ?
         </p>
       )}
 
