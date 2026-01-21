@@ -20,22 +20,20 @@ export const GapFill: React.FC<GapFillProps> = ({
   showResult,
 }) => {
   const [usedWords, setUsedWords] = useState<Record<number, string>>({});
-  const [availableWords, setAvailableWords] = useState<string[]>([]);
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
 
-  // Стабильное перемешивание слов при первой загрузке
+  // Стабильное перемешивание слов при первой загрузке (слова НЕ исчезают после использования)
   const shuffledWords = useMemo(() => {
     return [...words].sort(() => Math.random() - 0.5);
   }, [words.join(',')]);
 
-  // Инициализация слов при загрузке
+  // Сброс при загрузке нового вопроса
   useEffect(() => {
-    setAvailableWords(shuffledWords);
     setUsedWords({});
     setSelectedWord(null);
     setSelectedGap(null);
-  }, [shuffledWords, fullText]);
+  }, [fullText]);
 
   // Разбиваем текст на части по _____
   const textParts = fullText.split('_____');
@@ -47,14 +45,13 @@ export const GapFill: React.FC<GapFillProps> = ({
     return [];
   }, [correctAnswers]);
 
-  // Обработчик клика по слову
+  // Обработчик клика по слову — слово НЕ удаляется из списка (можно использовать многократно)
   const handleWordClick = (word: string) => {
     if (disabled) return;
     
     // Если уже выбран пробел - вставляем слово туда
     if (selectedGap !== null) {
       setUsedWords(prev => ({ ...prev, [selectedGap]: word }));
-      setAvailableWords(prev => prev.filter(w => w !== word));
       setSelectedGap(null);
       setSelectedWord(null);
       return;
@@ -72,10 +69,8 @@ export const GapFill: React.FC<GapFillProps> = ({
   const handleGapClick = (gapIndex: number) => {
     if (disabled) return;
     
-    // Если в пробеле уже есть слово - удаляем его
+    // Если в пробеле уже есть слово - просто удаляем его (слово остаётся в списке)
     if (usedWords[gapIndex]) {
-      const wordToReturn = usedWords[gapIndex];
-      setAvailableWords(prev => [...prev, wordToReturn]);
       const newUsed = { ...usedWords };
       delete newUsed[gapIndex];
       setUsedWords(newUsed);
@@ -84,10 +79,9 @@ export const GapFill: React.FC<GapFillProps> = ({
       return;
     }
     
-    // Если выбрано слово - вставляем его в этот пробел
+    // Если выбрано слово - вставляем его в этот пробел (слово НЕ удаляется из списка)
     if (selectedWord) {
       setUsedWords(prev => ({ ...prev, [gapIndex]: selectedWord }));
-      setAvailableWords(prev => prev.filter(w => w !== selectedWord));
       setSelectedWord(null);
       setSelectedGap(null);
       return;
@@ -160,12 +154,12 @@ export const GapFill: React.FC<GapFillProps> = ({
         </div>
       )}
 
-      {/* Доступные слова */}
+      {/* Доступные слова - всегда показываем ВСЕ слова, они не исчезают */}
       {!showResult && (
         <div>
           <p className="text-sm text-muted-foreground mb-2">Wörter:</p>
           <div className="flex flex-wrap gap-2">
-            {availableWords.map((word, index) => (
+            {shuffledWords.map((word, index) => (
               <button
                 key={`${word}-${index}`}
                 onClick={() => handleWordClick(word)}
