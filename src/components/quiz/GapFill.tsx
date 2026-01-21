@@ -99,17 +99,7 @@ export const GapFill: React.FC<GapFillProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Инструкция - минимальные подсказки */}
-      {selectedWord && !selectedGap && (
-        <p className="text-sm text-primary font-medium text-center animate-fade-in">
-          → {selectedWord}
-        </p>
-      )}
-      {selectedGap !== null && !selectedWord && (
-        <p className="text-sm text-primary font-medium text-center animate-fade-in">
-          ← ?
-        </p>
-      )}
+      {/* Убраны все подсказки - без дополнительных строк */}
 
       {/* Полный текст с пробелами */}
       <div className="bg-card rounded-xl p-4 border border-border">

@@ -388,7 +388,7 @@ export const QuizPage: React.FC = () => {
           showBack 
         />
         
-        <main className="max-w-2xl mx-auto px-4 py-6">
+        <main className="max-w-3xl mx-auto px-4 py-6">
           {/* Инструкция к заданию */}
           <div className="bg-muted/50 rounded-lg px-4 py-3 mb-6 text-center space-y-1">
             <p className="text-sm font-medium text-foreground">
@@ -438,11 +438,11 @@ export const QuizPage: React.FC = () => {
       />
       
       {/* Progress */}
-      <div className="max-w-md mx-auto px-4 py-2">
+      <div className="max-w-2xl mx-auto px-4 py-2">
         <Progress value={progress} className="h-1" />
       </div>
 
-      <main className="max-w-md mx-auto px-4 py-6">
+      <main className="max-w-2xl mx-auto px-4 py-6">
         {/* Инструкция к заданию — немецкий + перевод мелким шрифтом */}
         <div className="bg-muted/50 rounded-lg px-4 py-3 mb-4 text-center space-y-1">
           <p className="text-sm font-medium text-foreground">
