@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { z } from 'zod';
+import { Turnstile, useVerifyTurnstile } from '@/components/Turnstile';
 
 const emailSchema = z.string().email('Ungültige E-Mail-Adresse');
 const passwordSchema = z.string().min(6, 'Passwort muss mindestens 6 Zeichen haben');
@@ -16,6 +17,7 @@ export const AuthPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { signIn, signUp, resetPassword, user, loading } = useAuth();
+  const { verify: verifyTurnstile } = useVerifyTurnstile();
   
   const [mode, setMode] = useState<AuthMode>('login');
   const [email, setEmail] = useState('');
@@ -23,6 +25,9 @@ export const AuthPage: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const hasTurnstile = !!import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
   useEffect(() => {
     const modeParam = searchParams.get('mode');
@@ -36,6 +41,24 @@ export const AuthPage: React.FC = () => {
       navigate('/');
     }
   }, [user, loading, navigate]);
+
+  // Reset turnstile token when mode changes
+  useEffect(() => {
+    setTurnstileToken(null);
+  }, [mode]);
+
+  const handleTurnstileVerify = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken(null);
+    toast.error('Captcha-Fehler. Bitte versuche es erneut.');
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null);
+  }, []);
 
   const validateForm = (): boolean => {
     try {
@@ -59,6 +82,12 @@ export const AuthPage: React.FC = () => {
       return false;
     }
 
+    // Require turnstile for registration if configured
+    if (mode === 'register' && hasTurnstile && !turnstileToken) {
+      toast.error('Bitte bestätige das Captcha');
+      return false;
+    }
+
     return true;
   };
 
@@ -70,6 +99,17 @@ export const AuthPage: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Verify turnstile on register if configured
+      if (mode === 'register' && hasTurnstile && turnstileToken) {
+        const isValid = await verifyTurnstile(turnstileToken);
+        if (!isValid) {
+          toast.error('Captcha-Verifizierung fehlgeschlagen');
+          setTurnstileToken(null);
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
       if (mode === 'login') {
         const { error } = await signIn(email, password);
         if (error) {
@@ -178,24 +218,33 @@ export const AuthPage: React.FC = () => {
               )}
 
               {mode === 'register' && (
-                <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Passwort bestätigen</Label>
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="••••••••"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                    className="h-12"
+                <>
+                  <div className="space-y-2">
+                    <Label htmlFor="confirmPassword">Passwort bestätigen</Label>
+                    <Input
+                      id="confirmPassword"
+                      type="password"
+                      placeholder="••••••••"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                      className="h-12"
+                    />
+                  </div>
+
+                  {/* Turnstile Captcha - only on registration */}
+                  <Turnstile
+                    onVerify={handleTurnstileVerify}
+                    onError={handleTurnstileError}
+                    onExpire={handleTurnstileExpire}
                   />
-                </div>
+                </>
               )}
 
               <Button 
                 type="submit" 
                 className="w-full h-12 bg-primary text-primary-foreground"
-                disabled={isSubmitting}
+                disabled={isSubmitting || (mode === 'register' && hasTurnstile && !turnstileToken)}
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
