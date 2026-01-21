@@ -17,6 +17,12 @@ export const WordBuilder = forwardRef<HTMLDivElement, WordBuilderProps>(({
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [remainingWords, setRemainingWords] = useState<string[]>(availableWords);
 
+  // Сбрасываем состояние при смене availableWords (новый вопрос)
+  React.useEffect(() => {
+    setSelectedWords([]);
+    setRemainingWords(availableWords);
+  }, [availableWords]);
+
   const addWord = (word: string) => {
     if (disabled) return;
     setSelectedWords([...selectedWords, word]);

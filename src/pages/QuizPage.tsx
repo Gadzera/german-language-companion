@@ -453,8 +453,8 @@ export const QuizPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Beispiel - показываем на первом вопросе для форматов, которые имеют примеры */}
-        {currentQuestion === 0 && renderExampleBox(Number(quizId), question.format)}
+        {/* Beispiel - показываем ВСЕГДА для форматов, которые имеют примеры */}
+        {renderExampleBox(Number(quizId), question.format)}
 
         {/* Question - скрываем для F4 и F10, так как они показывают свой UI */}
         {!['F4', 'F10'].includes(question.format) && (
