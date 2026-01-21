@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
-import { isSupabaseConfigured } from '@/lib/supabase-config';
 
 export type SubscriptionType = 'free' | 'weekly' | 'monthly' | 'yearly';
 
@@ -73,14 +72,6 @@ export function useSubscription() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // If Supabase is not configured, return free plan immediately
-    if (!isSupabaseConfigured()) {
-      setSubscription('free');
-      setExpiresAt(null);
-      setLoading(false);
-      return;
-    }
-
     if (!user) {
       setSubscription('free');
       setExpiresAt(null);
@@ -89,19 +80,15 @@ export function useSubscription() {
     }
 
     const fetchSubscription = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('subscription_type, subscription_expires_at')
-          .eq('user_id', user.id)
-          .single();
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('subscription_type, subscription_expires_at')
+        .eq('user_id', user.id)
+        .single();
 
-        if (!error && data) {
-          setSubscription((data.subscription_type as SubscriptionType) || 'free');
-          setExpiresAt(data.subscription_expires_at ? new Date(data.subscription_expires_at) : null);
-        }
-      } catch (err) {
-        console.warn('[useSubscription] Failed to fetch subscription:', err);
+      if (!error && data) {
+        setSubscription((data.subscription_type as SubscriptionType) || 'free');
+        setExpiresAt(data.subscription_expires_at ? new Date(data.subscription_expires_at) : null);
       }
       setLoading(false);
     };
