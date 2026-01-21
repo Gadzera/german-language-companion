@@ -137,12 +137,12 @@ export const quizFormats: Record<string, FormatInfo> = {
     id: 'F10',
     name: 'Satz aus Wörtern bauen',
     description: 'Bauen Sie einen Satz aus den gegebenen Wörtern',
-    instruction: 'Bilden Sie einen korrekten Satz aus den vorgegebenen Wörtern. Klicken Sie auf die Wörter in der richtigen Reihenfolge. Es können mehrere Lösungen möglich sein.',
+    instruction: 'Bilden Sie Fragen mit Fragepronomen!',
     translations: {
-      ru: 'Составьте правильное предложение из данных слов. Нажимайте на слова в правильном порядке. Возможно несколько правильных решений.',
-      tr: 'Verilen kelimelerden doğru bir cümle kurun. Kelimelere doğru sırayla tıklayın. Birden fazla çözüm mümkün olabilir.',
-      fa: 'از کلمات داده شده یک جمله صحیح بسازید. به ترتیب صحیح روی کلمات کلیک کنید. چندین راه حل ممکن است.',
-      ar: 'كوّن جملة صحيحة من الكلمات المعطاة. انقر على الكلمات بالترتيب الصحيح. قد تكون هناك عدة حلول ممكنة.',
+      ru: 'Составьте вопросы с вопросительными местоимениями!',
+      tr: 'Soru zamirleri ile sorular oluşturun!',
+      fa: 'با ضمایر پرسشی سوال بسازید!',
+      ar: 'كوّن أسئلة باستخدام ضمائر الاستفهام!',
     },
   },
   F11: {

@@ -2,12 +2,18 @@
 // Формат: F10 - Построение предложений из слов
 // Задание: Bilden Sie Fragen mit Fragepronomen!
 
+// Beispiel показывается в UI отдельно
+export const quizExample = {
+  context: "Julia kommt aus Linz. Und du?",
+  solution: "Woher kommst du?",
+};
+
 export default [
   {
     id: "zt1-86-1",
     quiz_id: 86,
-    question_text: "Bilden Sie eine Frage mit Fragepronomen!",
-    question_hint: "Maria studiert seit einem Jahr in Wien. Und du?",
+    question_text: "Maria studiert seit einem Jahr in Wien. Und du?",
+    question_hint: "",
     format: "F10",
     options: ["Seit", "wann", "studierst", "du", "in", "Wien", "?"],
     extra_words: ["was", "wo", "woher", "ich", "wir", "sind", "haben", "bist"],
@@ -17,8 +23,8 @@ export default [
   {
     id: "zt1-86-2",
     quiz_id: 86,
-    question_text: "Bilden Sie eine Frage mit Fragepronomen!",
-    question_hint: "Josef arbeitet als Mechaniker. Und du?",
+    question_text: "Josef arbeitet als Mechaniker. Und du?",
+    question_hint: "",
     format: "F10",
     options: ["Als", "was", "arbeitest", "du", "?"],
     extra_words: ["wie", "wo", "wer", "ich", "wir", "bin", "ist", "haben"],
@@ -28,8 +34,8 @@ export default [
   {
     id: "zt1-86-3",
     quiz_id: 86,
-    question_text: "Bilden Sie eine Frage mit Fragepronomen!",
-    question_hint: "Marios Telefonnummer ist 01 567 39 91. Und deine?",
+    question_text: "Marios Telefonnummer ist 01 567 39 91. Und deine?",
+    question_hint: "",
     format: "F10",
     options: ["Wie", "ist", "deine", "Telefonnummer", "?"],
     extra_words: ["was", "wo", "wer", "meine", "seine", "haben", "bist"],
@@ -38,8 +44,8 @@ export default [
   {
     id: "zt1-86-4",
     quiz_id: 86,
-    question_text: "Bilden Sie eine Frage mit Fragepronomen!",
-    question_hint: "Sandra mag gern Wiener Schnitzel. Und du?",
+    question_text: "Sandra mag gern Wiener Schnitzel. Und du?",
+    question_hint: "",
     format: "F10",
     options: ["Was", "magst", "du", "gern", "?"],
     extra_words: ["wie", "wo", "wer", "ich", "sie", "ist", "haben", "isst"],
@@ -48,8 +54,8 @@ export default [
   {
     id: "zt1-86-5",
     quiz_id: 86,
-    question_text: "Bilden Sie eine Frage mit Fragepronomen!",
-    question_hint: "Anna geht es heute nicht so gut. Und dir?",
+    question_text: "Anna geht es heute nicht so gut. Und dir?",
+    question_hint: "",
     format: "F10",
     options: ["Wie", "geht", "es", "dir", "?"],
     extra_words: ["was", "wo", "wer", "mir", "ihm", "ist", "haben", "bist"],

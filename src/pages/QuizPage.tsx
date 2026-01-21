@@ -453,6 +453,17 @@ export const QuizPage: React.FC = () => {
           </p>
         </div>
 
+        {/* Beispiel для F10 формата (Quiz 86) - показываем только на первом вопросе */}
+        {question.format === 'F10' && currentQuestion === 0 && (
+          <div className="bg-accent/50 rounded-lg p-4 mb-4 border border-accent">
+            <p className="text-sm font-semibold text-foreground mb-2">Beispiel:</p>
+            <p className="text-sm text-muted-foreground mb-1">Julia kommt <span className="underline">aus Linz</span>. Und du?</p>
+            <p className="text-sm text-foreground">
+              <span className="font-medium">Lösung:</span> <span className="italic underline">Woher kommst du?</span>
+            </p>
+          </div>
+        )}
+
         {/* Question - скрываем для F4 и F10, так как они показывают свой UI */}
         {!['F4', 'F10'].includes(question.format) && (
           <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
@@ -476,11 +487,11 @@ export const QuizPage: React.FC = () => {
           </div>
         )}
         
-        {/* Начало предложения для F10 */}
+        {/* Контекст предложения для F10 - это question_text */}
         {question.format === 'F10' && (
-          <div className="bg-card rounded-xl p-6 border border-border mb-6 animate-fade-in">
-            <p className="text-lg text-foreground leading-relaxed font-medium">
-              {question.question_text}
+          <div className="bg-card rounded-xl p-4 border border-border mb-4 animate-fade-in">
+            <p className="text-base text-foreground leading-relaxed">
+              • {question.question_text}
             </p>
           </div>
         )}
