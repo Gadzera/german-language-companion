@@ -5,15 +5,19 @@ import { cn } from '@/lib/utils';
 interface GapFillProps {
   words: string[];
   fullText: string; // Полный текст с _____ для пробелов
+  correctAnswers?: string[]; // Правильные ответы для подсветки
   onSubmit: (answers: Record<number, string>) => void;
   disabled?: boolean;
+  showResult?: boolean; // Показывать результат
 }
 
 export const GapFill: React.FC<GapFillProps> = ({
   words,
   fullText,
+  correctAnswers,
   onSubmit,
   disabled,
+  showResult,
 }) => {
   const [usedWords, setUsedWords] = useState<Record<number, string>>({});
   const [availableWords, setAvailableWords] = useState<string[]>([]);
@@ -36,6 +40,12 @@ export const GapFill: React.FC<GapFillProps> = ({
   // Разбиваем текст на части по _____
   const textParts = fullText.split('_____');
   const gapCount = textParts.length - 1;
+
+  // Правильные ответы в виде массива
+  const correctAnswersList = useMemo(() => {
+    if (correctAnswers) return correctAnswers;
+    return [];
+  }, [correctAnswers]);
 
   // Обработчик клика по слову
   const handleWordClick = (word: string) => {
@@ -97,31 +107,42 @@ export const GapFill: React.FC<GapFillProps> = ({
 
   const allGapsFilled = Array.from({ length: gapCount }, (_, i) => i).every(i => usedWords[i]);
 
+  // Проверка правильности ответа в конкретном пробеле
+  const isGapCorrect = (gapIndex: number): boolean | null => {
+    if (!showResult || !usedWords[gapIndex]) return null;
+    if (correctAnswersList.length > gapIndex) {
+      return usedWords[gapIndex].toLowerCase() === correctAnswersList[gapIndex].toLowerCase();
+    }
+    return null;
+  };
+
   return (
     <div className="space-y-4">
-      {/* Убраны все подсказки - без дополнительных строк */}
-
       {/* Полный текст с пробелами */}
       <div className="bg-card rounded-xl p-4 border border-border">
         <div className="text-lg leading-loose">
           {textParts.map((part, i) => (
             <React.Fragment key={i}>
-              <span>{part}</span>
+              <span className="whitespace-pre-wrap">{part}</span>
               {i < textParts.length - 1 && (
                 <button
                   onClick={() => handleGapClick(i)}
                   disabled={disabled}
                   className={cn(
                     "inline-block min-w-16 mx-1 px-3 py-1 rounded-lg border-2 transition-all text-base",
-                    usedWords[i]
-                      ? "border-primary bg-primary/10 text-primary font-medium cursor-pointer hover:bg-destructive/10 hover:border-destructive hover:text-destructive"
-                      : selectedGap === i
-                        ? "border-primary bg-primary/30 ring-2 ring-primary ring-offset-2"
-                        : selectedWord
-                          ? "border-primary bg-primary/20 animate-pulse cursor-pointer hover:bg-primary/30"
-                          : "border-dashed border-muted-foreground/50 hover:border-primary/50 cursor-pointer"
+                    showResult && usedWords[i]
+                      ? isGapCorrect(i) === true
+                        ? "border-success bg-success/20 text-success font-medium"
+                        : "border-destructive bg-destructive/20 text-destructive font-medium"
+                      : usedWords[i]
+                        ? "border-primary bg-primary/10 text-primary font-medium cursor-pointer hover:bg-destructive/10 hover:border-destructive hover:text-destructive"
+                        : selectedGap === i
+                          ? "border-primary bg-primary/30 ring-2 ring-primary ring-offset-2"
+                          : selectedWord
+                            ? "border-primary bg-primary/20 animate-pulse cursor-pointer hover:bg-primary/30"
+                            : "border-dashed border-muted-foreground/50 hover:border-primary/50 cursor-pointer"
                   )}
-                  title={usedWords[i] ? "Нажмите чтобы убрать слово" : "Нажмите чтобы выбрать пробел"}
+                  title={usedWords[i] ? "Klicken zum Entfernen" : "Klicken zum Auswählen"}
                 >
                   {usedWords[i] || '___'}
                 </button>
@@ -131,38 +152,50 @@ export const GapFill: React.FC<GapFillProps> = ({
         </div>
       </div>
 
-      {/* Доступные слова */}
-      <div>
-        <p className="text-sm text-muted-foreground mb-2">Wörter:</p>
-        <div className="flex flex-wrap gap-2">
-          {availableWords.map((word, index) => (
-            <button
-              key={`${word}-${index}`}
-              onClick={() => handleWordClick(word)}
-              disabled={disabled}
-              className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-all",
-                selectedWord === word
-                  ? "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2"
-                  : selectedGap !== null
-                    ? "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer animate-pulse"
-                    : "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer"
-              )}
-            >
-              {word}
-            </button>
-          ))}
+      {/* Правильные ответы при показе результата */}
+      {showResult && correctAnswersList.length > 0 && (
+        <div className="bg-success/10 border border-success rounded-lg p-3">
+          <p className="text-sm font-medium text-success mb-1">Richtige Antworten:</p>
+          <p className="text-sm text-foreground">{correctAnswersList.join(', ')}</p>
         </div>
-      </div>
+      )}
+
+      {/* Доступные слова */}
+      {!showResult && (
+        <div>
+          <p className="text-sm text-muted-foreground mb-2">Wörter:</p>
+          <div className="flex flex-wrap gap-2">
+            {availableWords.map((word, index) => (
+              <button
+                key={`${word}-${index}`}
+                onClick={() => handleWordClick(word)}
+                disabled={disabled}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                  selectedWord === word
+                    ? "bg-primary text-primary-foreground ring-2 ring-primary ring-offset-2"
+                    : selectedGap !== null
+                      ? "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer animate-pulse"
+                      : "bg-muted text-foreground hover:bg-primary/20 hover:text-primary cursor-pointer"
+                )}
+              >
+                {word}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Кнопка проверки */}
-      <Button
-        onClick={handleSubmit}
-        disabled={disabled || !allGapsFilled}
-        className="w-full bg-success text-success-foreground hover:bg-success/90"
-      >
-        Prüfen
-      </Button>
+      {!showResult && (
+        <Button
+          onClick={handleSubmit}
+          disabled={disabled || !allGapsFilled}
+          className="w-full bg-success text-success-foreground hover:bg-success/90"
+        >
+          Prüfen
+        </Button>
+      )}
     </div>
   );
 };

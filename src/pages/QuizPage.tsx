@@ -252,7 +252,7 @@ export const QuizPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header title={quiz.title} showBack />
-        <main className="max-w-md mx-auto px-4 py-8 text-center">
+        <main className="max-w-2xl mx-auto px-4 py-8 text-center">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
             <span className="text-3xl">📝</span>
           </div>
@@ -285,7 +285,7 @@ export const QuizPage: React.FC = () => {
       <div className="min-h-screen bg-background">
         <Header title="Ergebnis" showBack />
         
-        <main className="max-w-md mx-auto px-4 py-8">
+        <main className="max-w-2xl mx-auto px-4 py-8">
           <div className="text-center animate-scale-in">
             <div className={`w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center ${
               correctCount >= questions.length * 0.7 ? 'bg-success' : 
@@ -634,16 +634,20 @@ function renderQuizFormat(
   if (format === 'F4') {
     // Передаём слова — перемешивание происходит внутри GapFill
     const allWords = [...question.options, ...(question.extra_words || [])];
+    // Правильные ответы для подсветки
+    const correctAnswersList = question.correct_answer.split(' ');
     
     return (
       <GapFill
         words={allWords}
         fullText={question.question_text}
+        correctAnswers={correctAnswersList}
         onSubmit={(answers) => {
           const answer = Object.values(answers).join(' ');
           onAnswer(answer);
         }}
         disabled={showResult}
+        showResult={showResult}
       />
     );
   }
