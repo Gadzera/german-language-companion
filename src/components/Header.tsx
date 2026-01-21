@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -10,13 +10,13 @@ interface HeaderProps {
   backTo?: string; // Explicit back navigation path
 }
 
-export const Header: React.FC<HeaderProps> = ({ 
+export const Header = forwardRef<HTMLElement, HeaderProps>(({ 
   title, 
   showBack = false, 
   rightElement,
   subtitle,
   backTo
-}) => {
+}, ref) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border z-40">
+    <header ref={ref} className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border z-40">
       <div className="max-w-md mx-auto flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-3">
           {showBack && (
@@ -83,4 +83,6 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';
